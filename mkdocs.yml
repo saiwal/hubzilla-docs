@@ -36,7 +36,8 @@ extra:
 
 # Page tree
 nav:
-  - Home: index.md 
+  - Home: 
+    - index.md 
     - About: 
       - about/index.md 
       - About The Project: about/project/governance.md
