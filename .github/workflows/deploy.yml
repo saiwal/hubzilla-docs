@@ -75,8 +75,8 @@ jobs:
         run: |
           # Publishing implies creating a git commit on the gh-pages branch, 
           # We will need to create a user for this at some point
-          git config user.name <GitHub user>
-          git config user.email <GitHub user email>
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
           git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
           mike deploy \
             --update-aliases \
