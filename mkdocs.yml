@@ -30,3 +30,4 @@ plugins:
 extra:
   version:
     provider: mike
+    alias: true
