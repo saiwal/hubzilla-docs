@@ -39,11 +39,10 @@ nav:
   - Home: 
     - index.md 
     - About: 
-      - about/index.md 
       - About The Project: about/project/governance.md
       - Credits: about/project/credits.md
       - Privacy: about/gdpr.md
-  - Member Gudie: 
+  - Member Guide: 
     - member/index.md 
     - Features: member/features.md
   - Administrator Guide:
