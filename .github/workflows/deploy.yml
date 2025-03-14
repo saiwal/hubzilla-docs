@@ -84,3 +84,4 @@ jobs:
             --push \
             ${{ env.PH_DOCS_VERSION }} \
             ${{ env.PH_DOCS_ALIAS }}
+          mike set-default --push latest
