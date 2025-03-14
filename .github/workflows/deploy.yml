@@ -1,0 +1,45 @@
+name: Deploy MkDocs to GitHub Pages
+
+# Trigger on push to main branch
+on:
+  push:
+    branches:
+      - main
+
+# Set permissions for deployment
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Checkout the repository code
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+        
+    # Install dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install mkdocs
+        # Add any additional plugins from requirements.txt
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        
+    # Build the site
+    - name: Build MkDocs
+      run: mkdocs build
+      
+    # Deploy to GitHub Pages
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
