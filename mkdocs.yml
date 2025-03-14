@@ -21,6 +21,10 @@ theme:
         name: Switch to system preference
   features:
     - navigation.tabs
+    - navigation.indexes
+
+repo_name: saiwal/hubzilla-docs
+repo_url: https://github.com/saiwal/hubzilla-docs
 
 plugins:
   - search
@@ -29,3 +33,31 @@ extra:
   version:
     provider: mike
     alias: true
+
+# Page tree
+nav:
+  - Home: index.md 
+    - About: 
+      - about/index.md 
+      - About The Project: about/project/governance.md
+      - Credits: about/project/credits.md
+      - Privacy: about/gdpr.md
+  - Member Gudie: 
+    - member/index.md 
+    - Features: member/features.md
+  - Administrator Guide:
+    - admin/index.md 
+    - Directory: admin/primary_directory.md
+    - Hub Snapshots: admin/hub_snapshots.md
+    - Widgets: admin/widgets.md
+  - Developers Guide:
+    - dev/index.md 
+    - Derived Theme: dev/derivedtheme.md 
+    - Filesync and Clone : dev/filesync.md 
+    - Plugins: dev/plugins.md 
+    - Schema system: dev/schema.md 
+    - Translating: dev/translations.md 
+    - Zot: dev/zot.md 
+  - API:
+    - api/index.md
+     
