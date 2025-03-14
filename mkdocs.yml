@@ -2,4 +2,4 @@ site_name: Hubzilla Docs
 nav:
   - Home: index.md
   - About: about.md
-theme: readthedocs
+theme: material
