@@ -30,7 +30,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install mkdocs
-        pip install mkdocs-material
+        pip install -e mkdocs-material
         # Add any additional plugins from requirements.txt
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
