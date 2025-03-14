@@ -1,0 +1,2337 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Widgets/">
+      
+      
+        <link rel="next" href="../hub_snapshots/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>Administrator guide - Hubzilla Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hubzilla Docs" class="md-header__button md-logo" aria-label="Hubzilla Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hubzilla Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Administrator guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Welcome to MkDocs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../1.%20About/1.1%20about/" class="md-tabs__link">
+          
+  
+  1. About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../2.%20Member%20Guide/Features/" class="md-tabs__link">
+          
+  
+  2. Member Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Primary-Directory/" class="md-tabs__link">
+          
+  
+  3. Administrators Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../4.%20Developers%20Guide/DerivedTheme1/" class="md-tabs__link">
+          
+  
+  4. Developers Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../5.%20API/api_albums/" class="md-tabs__link">
+          
+  
+  5. API
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hubzilla Docs" class="md-nav__button md-logo" aria-label="Hubzilla Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Hubzilla Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. About
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20About/1.1%20about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20About/1.3%20gdpr1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 gdpr1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1.2 About the Project
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            1.2 About the Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20About/1.2%20About%20the%20Project/1.1.1.%20Credits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.1. Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20About/1.2%20About%20the%20Project/1.1.2.%20Hubzilla%20Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.2. Hubzilla Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Member Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Member Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Member%20Guide/Features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extra Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Member%20Guide/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    3. Administrators Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Administrators Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Primary-Directory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Primary Directory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Widgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core Widgets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Administrator guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Administrator guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-find-more-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to find more help
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before you begin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before you begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choose-a-domain-name-or-subdomain-name-for-your-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose a domain name or subdomain name for your server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decide-if-you-will-use-ssl-and-obtain-an-ssl-certificate-before-software-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decide if you will use SSL and obtain an SSL certificate before software installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unpack-the-projectname-files-into-the-root-of-your-web-server-document-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unpack the $Projectname files into the root of your web server document area
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#official-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official addons
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Official addons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-installation-via-the-homeinstall-shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated installation via the .homeinstall shell script
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated installation via the .homeinstall shell script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of installation steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Addons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#federation-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federation Addons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theme-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theme management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Theme management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repo-management-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repo management example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#channel-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Channel Directory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Channel Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keywords
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Administration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#site-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site Administration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Log files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotating-log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating log files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporting issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hub_snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hub snapshots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4. Developers Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. Developers Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Developers%20Guide/DerivedTheme1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a Derived Theme
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Developers%20Guide/Developers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Developers%20Guide/Plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating Plugins/Addons for $Projectname
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Developers%20Guide/Schema-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Red development - a guide to the schema system
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Developers%20Guide/Translations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translating $Projectname
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Developers%20Guide/Zot---A-High-Level-Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zot - A High Level Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Developers%20Guide/filesync/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Sync and Clone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5. API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20API/api_albums/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API albums
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20API/api_filedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API filedata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20API/api_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20API/api_group_members/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API group_members
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20API/api_item_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API item/update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20API/api_xchan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API xchan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20API/group/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API group
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-find-more-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to find more help
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before you begin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before you begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choose-a-domain-name-or-subdomain-name-for-your-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose a domain name or subdomain name for your server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decide-if-you-will-use-ssl-and-obtain-an-ssl-certificate-before-software-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decide if you will use SSL and obtain an SSL certificate before software installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unpack-the-projectname-files-into-the-root-of-your-web-server-document-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unpack the $Projectname files into the root of your web server document area
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#official-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official addons
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Official addons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-installation-via-the-homeinstall-shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated installation via the .homeinstall shell script
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated installation via the .homeinstall shell script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of installation steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Addons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#federation-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federation Addons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theme-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theme management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Theme management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repo-management-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repo management example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#channel-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Channel Directory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Channel Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keywords
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Administration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#site-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site Administration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Log files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotating-log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating log files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporting issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Administrator guide</h1>
+
+<h3 id="overview">Overview</h3>
+<p>$Projectname is more than a simple web application. It is a
+complex communications system which more closely resembles an email server
+than a web server. For reliability and performance, messages are delivered in
+the background and are queued for later delivery when sites are down. This
+kind of functionality requires a bit more of the host system than the typical
+blog. Not every PHP/MySQL hosting provider will be able to support
+$Projectname. Many will but please review the requirements and confirm these
+with your hosting provider prior to installation.</p>
+<p>We've tried very hard to ensure that $Projectname will run on commodity
+hosting platforms such as those used to host Wordpress blogs and Drupal
+websites. It will run on most any Linux VPS system. Windows LAMP platforms
+such as XAMPP and WAMP are not officially supported at this time however
+we welcome patches if you manage to get it working.</p>
+<h3 id="where-to-find-more-help">Where to find more help</h3>
+<p>If you encounter problems or have issues not addressed in this documentation,
+please let us know via the <a href="https://framagit.org/hubzilla/core/issues">Github issue
+tracker</a>. Please be as clear as you
+can about your operating environment and provide as much detail as possible
+about any error messages you may see, so that we can prevent it from happening
+in the future. Due to the large variety of operating systems and PHP platforms
+in existence we may have only limited ability to debug your PHP installation or
+acquire any missing modules, but we will do our best to solve any general code
+issues.</p>
+<h3 id="before-you-begin">Before you begin</h3>
+<h4 id="choose-a-domain-name-or-subdomain-name-for-your-server">Choose a domain name or subdomain name for your server</h4>
+<p>$Projectname can only be installed into the root of a domain or sub-domain, and can
+not be installed using alternate TCP ports.</p>
+<h4 id="decide-if-you-will-use-ssl-and-obtain-an-ssl-certificate-before-software-installation">Decide if you will use SSL and obtain an SSL certificate before software installation</h4>
+<p>You SHOULD use SSL. If you use SSL, you MUST use a "browser-valid" certificate.
+<em>You MUST NOT use self-signed certificates!</em></p>
+<p>Please test your certificate prior to installation. A web tool for testing your
+certificate is available at "http://www.digicert.com/help/". When visiting your
+site for the first time, please use the SSL ("https://") URL if SSL is available.
+This will avoid problems later. The installation routine will not allow you to
+use a non browser-valid certificate.</p>
+<p>This restriction is incorporated because public posts from you may contain
+references to images on your own hub. Other members viewing their stream on
+other hubs will get warnings if your certificate is not trusted by their web
+browser. This will confuse many people because this is a decentralised network
+and they will get the warning about your hub while viewing their own hub and may
+think their own hub has an issue. These warnings are very technical and scary to
+some folks, many of whom will not know how to proceed except to follow the browser
+advice. This is disruptive to the community. That said, we recognise the issues
+surrounding the current certificate infrastructure and agree there are many
+problems, but that doesn't change the requirement.</p>
+<p>Free "browser-valid" certificates are available from providers such as StartSSL
+and LetsEncrypt.</p>
+<p>If you do NOT use SSL, there may be a delay of up to a minute for the initial
+install script - while we check the SSL port to see if anything responds there.
+When communicating with new sites, $Projectname always attempts connection on the
+SSL port first, before falling back to a less secure connection.  If you do not
+use SSL, your webserver MUST NOT listen on port 443 at all.</p>
+<p>If you use LetsEncrypt to provide certificates and create a file under
+.well-known/acme-challenge so that LetsEncrypt can verify your domain ownership,
+please remove or rename the .well-known directory as soon as the certificate is
+generated. $Projectname will provide its own handler for ".well-known" services when
+it is installed, and an existing directory in this location may prevent some of
+these services from working correctly. This should not be a problem with Apache,
+but may be an issue with nginx or other web server platforms.</p>
+<h3 id="deployment">Deployment</h3>
+<p>There are several ways to deploy a new hub.</p>
+<ul>
+<li>Manual installation on an existing server</li>
+<li>Automated installation on an existing server using a shell script</li>
+<li>Automated deployment using an OpenShift virtual private server (VPS)</li>
+</ul>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>
+<p>Apache with mod-rewrite enabled and "AllowOverride All" so you can use a
+  local .htaccess file. Some folks have successfully used nginx and lighttpd.
+  Example config scripts are available for these platforms in doc/install.
+  Apache and nginx have the most support.</p>
+</li>
+<li>
+<p>PHP 8.1 or later.
+  Note that on some shared hosting environments, the <em>command line</em>
+  version of PHP might differ from the <em>webserver</em> version</p>
+</li>
+<li>
+<p>PHP <em>command line</em> access with register_argc_argv set to true in the
+  php.ini file, and with no hosting provider restrictions on the use of
+  exec() and proc_open().</p>
+</li>
+<li>
+<p>curl, gd (with at least jpeg and png support), pdo-mysql (or pdo-postgres), mbstring, zip,
+  and openssl extensions. The imagick extension is not required, but recommended.</p>
+</li>
+<li>
+<p>xml extension is required if you want webdav to work.</p>
+</li>
+<li>
+<p>some form of email server or email gateway such that PHP mail() works.</p>
+</li>
+<li>
+<p>A supported database server. The supported databases are:</p>
+</li>
+<li>Mysql version 8.0.22 or later</li>
+<li>MariaDB version 10.4 or later</li>
+<li>
+<p>PostgreSQL version 12 or later</p>
+</li>
+<li>
+<p>ability to schedule jobs with cron.</p>
+</li>
+<li>
+<p>Installation into a top-level domain or sub-domain (without a
+  directory/path component in the URL) is REQUIRED.</p>
+</li>
+</ul>
+<h3 id="manual-installation">Manual Installation</h3>
+<h4 id="unpack-the-projectname-files-into-the-root-of-your-web-server-document-area">Unpack the $Projectname files into the root of your web server document area</h4>
+<p>If you copy the directory tree to your webserver, make sure that you include the
+hidden files like .htaccess.</p>
+<p>If you are able to do so, we recommend using git to clone the source
+repository rather than to use a packaged tar or zip file.  This makes the
+software much easier to update. The Linux command to clone the repository
+into a directory "mywebsite" would be:</p>
+<pre><code>git clone https://framagit.org/hubzilla/core.git mywebsite
+</code></pre>
+<p>and then you can pick up the latest changes at any time with:</p>
+<pre><code>git pull
+</code></pre>
+<p>make sure folders <code>store/[data]/smarty3</code> and <code>store</code> exist and are
+writable by the webserver:</p>
+<pre><code>mkdir -p "store/[data]/smarty3"
+chmod -R 777 store
+
+This permission (777) is very dangerous and if you have sufficient
+privilege and knowledge you should make these directories writeable
+only by the webserver and, if different, the user that will run the
+cron job (see below). In many shared hosting environments this may be
+difficult without opening a trouble ticket with your provider. The
+above permissions will allow the software to work, but are not
+optimal.
+</code></pre>
+<p>The following directories also need to be writable by the webserver in order for certain
+web-based administrative tools to function:</p>
+<ul>
+<li><code>addon</code></li>
+<li><code>extend</code></li>
+<li><code>view/theme</code></li>
+<li><code>widget</code></li>
+</ul>
+<h4 id="official-addons">Official addons</h4>
+<h5 id="installation">Installation</h5>
+<p>Navigate to your website. Then you should clone the addon repository (separately). We'll give this repository a nickname of 'hzaddons'. You can pull in other hubzilla addon repositories by giving them different nicknames:</p>
+<pre><code>cd mywebsite
+util/add_addon_repo https://framagit.org/hubzilla/addons.git hzaddons
+</code></pre>
+<h5 id="updating">Updating</h5>
+<p>For keeping the addon tree updated, you should be on your top level website directory and issue an update command for that repository::</p>
+<pre><code>cd mywebsite
+util/update_addon_repo hzaddons
+</code></pre>
+<p>Create searchable representations of the online documentation. You may do this
+any time that the documentation is updated :</p>
+<pre><code>cd mywebsite
+util/importdoc
+</code></pre>
+<h3 id="automated-installation-via-the-homeinstall-shell-script">Automated installation via the .homeinstall shell script</h3>
+<p>There is a shell script in (<code>.homeinstall/hubzilla-setup.sh</code>) that will install $Projectname and its dependencies on a fresh installation of Debian 9 stable (Stetch). It should work on similar Linux systems but your results may vary.</p>
+<h4 id="requirements_1">Requirements</h4>
+<p>The installation script was originally designed for a small hardware server behind your home router. However, it has been tested on several systems running Debian 9:</p>
+<ul>
+<li>
+<p>Home-PC (Debian-9.2-amd64) and Rapberry-Pi 3 (Rasbian = Debian 9.3)</p>
+</li>
+<li>
+<p>Internet connection and router at home</p>
+</li>
+<li>Mini-PC / Raspi connected to your router</li>
+<li>USB drive for backups</li>
+<li>Fresh installation of Debian on your mini-pc</li>
+<li>Router with open ports 80 and 443 for your Debian</li>
+</ul>
+<h4 id="overview-of-installation-steps">Overview of installation steps</h4>
+<ol>
+<li><code>apt-get install git</code></li>
+<li><code>mkdir -p /var/www/html</code></li>
+<li><code>cd /var/www/html</code></li>
+<li><code>git clone https://framagit.org/hubzilla/core.git .</code></li>
+<li><code>nano .homeinstall/hubzilla-config.txt</code></li>
+<li><code>cd .homeinstall/</code></li>
+<li><code>./hubzilla-setup.sh</code></li>
+<li><code>service apache2 reload</code></li>
+<li>Open your domain with a browser and step throught the initial configuration of $Projectname.</li>
+</ol>
+<h3 id="recommended-addons">Recommended Addons</h3>
+<p>We recommend the following addons be installed on all public sites:</p>
+<pre><code>nsfw - hide inappropriate posts/comments
+superblock - block content from offensive channels
+</code></pre>
+<h3 id="federation-addons">Federation Addons</h3>
+<p>Several web communities have begun to converge using common protocols. The protocols involved are somewhat limited in their abilities. The GNU-Social protocol for instance offers no privacy modes, and the Diaspora protocol is somewhat restrictive in what kinds of communications are allowed. All comments must be signed in a very unique manner by the original author. The ActivityPub protocol is also being considered and may be supported at a future date. No other existing protocol supports nomadic location as used by this project. This presents some support challenges as some features work with some networks and don't work with others. Nevertheless the federation protocols allow connections to be made to a much larger community of people worldwide. They are provided as addons.</p>
+<ul>
+<li>
+<p>diaspora - The Diaspora Protocol used by Diaspora and Friendica. You should enable 'Diaspora Statistics' (statistics) first to enable all the available features.</p>
+</li>
+<li>
+<p>gnusoc - The GNU-Social Protocol, used by GNU-Social, Mastodon and several other communities. This addon requires you first install the 'pubsubhubbub' service (also an addon).</p>
+</li>
+</ul>
+<p>Each member of your site must choose whether or not to allow these protocols individually as they may conflict with several desirable core features and abilities of this software (such as channel migration and cloning). They do this from their 'Settings -&gt; Feature/Addon Settings' page. The administrator may also set the following:</p>
+<pre><code>util/config system.diaspora_allowed 1
+util/config system.gnusoc_allowed 1
+</code></pre>
+<p>and enable these protocols automatically for all newly created channels.</p>
+<h3 id="service-classes">Service Classes</h3>
+<p>Service classes allow you to set limits on system resources by limiting what individual
+accounts can do, including file storage and top-level post limits. Define custom service
+classes according to your needs in the <code>.htconfig.php</code> file. For example, create
+a <em>standard</em> and <em>premium</em> class using the following lines:</p>
+<pre><code>// Service classes
+
+App::$config['system']['default_service_class']='standard'; // this is the default service class that is attached to every new account
+
+// configuration for standard service class
+App::$config['service_class']['standard'] =
+array('photo_upload_limit'=&gt;2097152, // total photo storage limit per channel (here 2MB)
+'total_identities' =&gt;1, // number of channels an account can create
+'total_items' =&gt;0, // number of top level posts a channel can create. Applies only to top level posts of the channel user, other posts and comments are unaffected
+'total_pages' =&gt;100, // number of pages a channel can create
+'total_channels' =&gt;100, // number of channels the user can add, other users can still add this channel, even if the limit is reached
+'attach_upload_limit' =&gt;2097152, // total attachment storage limit per channel (here 2MB)
+'chatters_inroom' =&gt;20);
+
+// configuration for premium service class
+App::$config['service_class']['premium'] =
+array('photo_upload_limit'=&gt;20000000000, // total photo storage limit per channel (here 20GB)
+'total_identities' =&gt;20, // number of channels an account can create
+'total_items' =&gt;20000, // number of top level posts a channel can create. Applies only to top level posts of the channel user, other posts and comments are unaffected
+'total_pages' =&gt;400, // number of pages a channel can create
+'total_channels' =&gt;2000, // number of channels the user can add, other users can still add this channel, even if the limit is reached
+'attach_upload_limit' =&gt;20000000000, // total attachment storage limit per channel (here 20GB)
+'chatters_inroom' =&gt;100);
+</code></pre>
+<p>To apply a service class to an existing account, use the command line utility from the
+web root:</p>
+<p><code>util/service_class</code>
+list service classes</p>
+<p><code>util/config system default_service_class firstclass</code>
+set the default service class to 'firstclass'</p>
+<p><code>util/service_class firstclass</code>
+list the services that are part of 'firstclass' service class</p>
+<p><code>util/service_class firstclass photo_upload_limit 10000000</code>
+set firstclass total photo disk usage to 10 million bytes</p>
+<p><code>util/service_class --account=5 firstclass</code>
+set account id 5 to service class 'firstclass' (with confirmation)</p>
+<p><code>util/service_class --channel=blogchan firstclass</code>
+set the account that owns channel 'blogchan' to service class 'firstclass' (with confirmation)</p>
+<p><strong>Service class limit options</strong></p>
+<ul>
+<li>photo_upload_limit - maximum total bytes for photos</li>
+<li>total_items - maximum total toplevel posts</li>
+<li>total_pages - maximum comanche pages</li>
+<li>total_identities - maximum number of channels owned by account</li>
+<li>total_channels - maximum number of connections</li>
+<li>total_feeds - maximum number of rss feed connections</li>
+<li>attach_upload_limit - maximum file upload storage (bytes)</li>
+<li>minimum_feedcheck_minutes - lowest setting allowed for polling rss feeds</li>
+<li>chatrooms - maximum chatrooms</li>
+<li>chatters_inroom - maximum chatters per room</li>
+<li>access_tokens - maximum number of Guest Access Tokens per channel</li>
+</ul>
+<h3 id="theme-management">Theme management</h3>
+<h4 id="repo-management-example">Repo management example</h4>
+<ol>
+<li>Navigate to your hub web root</li>
+</ol>
+<p><code>root@hub:/root# cd /var/www</code>
+2. Add the theme repo and give it a name</p>
+<p><code>root@hub:/var/www# util/add_theme_repo https://github.com/DeadSuperHero/redmatrix-themes.git DeadSuperHero</code>
+3. Update the repo by using</p>
+<p><code>root@hub:/var/www#  util/update_theme_repo DeadSuperHero</code></p>
+<h3 id="channel-directory">Channel Directory</h3>
+<h4 id="keywords">Keywords</h4>
+<p>There is a "tag cloud" of keywords that can appear on the channel directory page.
+If you wish to hide these keywords, which are drawn from the directory server, you
+can use the <em>config</em> tool:</p>
+<pre><code>util/config system disable_directory_keywords 1
+</code></pre>
+<p>If your hub is in the standalone mode because you do not wish to connect to the
+global grid, you may instead ensure the the <em>directory_server</em> system option is
+empty:</p>
+<pre><code>util/config system directory_server ""
+</code></pre>
+<h3 id="administration">Administration</h3>
+<h4 id="site-administration">Site Administration</h4>
+<p>Administration of the website is commonly done through the admin webpage located at /admin on your website. In order to access this page you must have administration rights to the server. Administration rights are granted to the first account to register on your site, <strong>provided</strong> the email address of that account exactly matches the email address you provided as the administrator's email address during setup.</p>
+<p>There are several ways that this can fail and leave the system without an administrator account, for instance if the first account that was created provided a different email address than the administrator email address that was supplied during setup.</p>
+<p>For security reasons there is no web page or interface on the system which will give you administrator access. If you need to correct a situation where a system has no administrator account it <strong>must</strong> be done by editing the account table in the database. There is no other way. To do this, you will need to locate the entry in the account table which belongs to the desired administrator, and set 'account_roles' for that entry to 4096. You will then be able to access the admin page from your system's profile menu or directly via /admin .</p>
+<p>A hub can have multiple admins and there is no limit to how administrators you can have. Repeat the above process for every account you wish to provide with administration rights.</p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<h4 id="log-files">Log files</h4>
+<p>The system logfile is an extremely useful resource for tracking down
+things that go wrong. This can be enabled in the admin/log
+configuration page. A loglevel setting of <code>LOGGER_DEBUG</code> is preferred
+for stable production sites. Most things that go wrong with
+communications or storage are listed here. A setting of LOGGER_DATA
+provides <em>much</em> more detail, but may fill your disk. In either
+case we recommend the use of logrotate on your operating system to
+cycle logs and discard older entries.</p>
+<p>At the bottom of your .htconfig.php file are several lines (commented
+out) which enable PHP error logging. This reports issues with code
+syntax and executing the code and is the first place you should look
+for issues which result in a "white screen" or blank page. This is
+typically the result of code/syntax problems.  Database errors are
+reported to the system logfile, but we've found it useful to have a
+file in your top-level directory called dbfail.out which <em>only</em>
+collects database related issues. If the file exists and is writable,
+database errors will be logged to it as well as to the system logfile.</p>
+<p>In the case of "500" errors, the issues may often be logged in your
+webserver logs, often /var/log/apache2/error.log or something
+similar. Consult your operating system documentation.</p>
+<p>There are three different log facilities.</p>
+<p><strong>The first is the database failure log</strong>. This is only used if you
+  create a file called specifically <code>dbfail.out</code> in the root folder of
+  your website and make it write-able by the web server. If we have
+  any database failed queries, they are all reported here. They
+  generally indicate typos in our queries, but also occur if the
+  database server disconnects or tables get corrupted. On rare
+  occasions we'll see race conditions in here where two processes
+  tried to create an xchan or cache entry with the same ID. Any other
+  errors (especially persistent errors) should be investigated.</p>
+<p><strong>The second is the PHP error log</strong>. This is created by the language
+  processor and only reports issues in the language environment. Again
+  these can be syntax errors or programming errors, but these
+  generally are fatal and result in a "white screen of death";
+  e.g. PHP terminates. You should probably look at this file if
+  something goes wrong that doesn't result in a white screen of death,
+  but it isn't uncommon for this file to be empty for days on end.</p>
+<p>There are some lines at the bottom of the supplied <code>.htconfig.php</code>
+  file; which if uncommented will enable a PHP error log (<em>extremely</em>
+  useful for finding the source of white screen failures). This isn't
+  done by default due to potential issues with logfile ownership and
+  write permissions and the fact that there is no logfile rotation by
+  default.</p>
+<p><strong>The third is the "application log"</strong>. This is used by $Projectname
+  to report what is going on in the program and usually reports any
+  difficulties or unexpected data we received. It also occasionally
+  reports "heartbeat" status messages to indicate that we reached a
+  certain point in a script. <strong>This</strong> is the most important log file
+  to us, as we create it ourself for the sole purpose of reporting the
+  status of background tasks and anything that seems weird or out of
+  place. It may not be fatal, but maybe just unexpected. If you're
+  performing a task and there's a problem, let us know what is in this
+  file when the problem occurred. (Please don't send me 100M dumps
+  you'll only piss me off). Just a few relevant lines so I can rule
+  out a few hundred thousand lines of code and concentrate on where
+  the problem starts showing up.</p>
+<p>These are your site logs, not mine. We report serious issues at any
+log level. I highly recommend <code>DEBUG</code> log level for most sites - which
+provides a bit of additional info and doesn't create huge
+logfiles. When there's a problem which defies all attempts to track,
+you might wish to use <code>DATA</code> log level for a short period of time to
+capture all the detail of what structures we were dealing with at the
+time. This log level will use a lot of space so is recommended only
+for brief periods or for developer test sites.</p>
+<p>I recommend configuring logrotate for both the php log and the
+application log. I usually have a look at dbfail.out every week or
+two, fix any issues reported and then starting over with a fresh
+file. Likewise with the PHP logfile. I refer to it once in a while to
+see if there's something that needs fixing.</p>
+<p>If something goes wrong, and it's not a fatal error, I look at the
+application logfile. Often I will</p>
+<pre><code>tail -f logfile.out
+</code></pre>
+<p>While repeating an operation that has problems. Often I'll insert
+extra logging statements in the code if there isn't any hint what's
+going wrong. Even something as simple as "got here" or printing out
+the value of a variable that might be suspect. You can do this too -
+in fact I encourage you to do so. Once you've found what you need to
+find, you can</p>
+<pre><code>git checkout file.php
+</code></pre>
+<p>To immediately clear out all the extra logging stuff you added.  Use
+the information from this log and any detail you can provide from your
+investigation of the problem to file your bug report - unless your
+analysis points to the source of the problem. In that case, just fix
+it.</p>
+<h5 id="rotating-log-files">Rotating log files</h5>
+<ol>
+<li>Enable the <strong>logrot</strong> addon in the official <a href="https://framagit.org/hubzilla/addons">hubzilla-addons</a> repo</li>
+<li>Create a directory in your web root called <code>log</code> with webserver write permissions</li>
+<li>Go to the <strong>logrot</strong> admin settings and enter this folder name as well as the max size and number of retained log files.</li>
+</ol>
+<h4 id="reporting-issues">Reporting issues</h4>
+<p>When reporting issues, please try to provide as much detail as may be
+necessary for developers to reproduce the issue and provide the
+complete text of all error messages.</p>
+<p>We encourage you to try to the best of your abilities to use these
+logs combined with the source code in your possession to troubleshoot
+issues and find their cause. The community is often able to help, but
+only you have access to your site logfiles and it is considered a
+security risk to share them.</p>
+<p>If a code issue has been uncovered, please report it on the project
+bugtracker (https://framagit.org/hubzilla/core/issues). Again provide
+as much detail as possible to avoid us going back and forth asking
+questions about your configuration or how to duplicate the problem, so
+that we can get right to the problem and figure out what to do about
+it. You are also welcome to offer your own solutions and submit
+patches. In fact we encourage this as we are all volunteers and have
+little spare time available. The more people that help, the easier the
+workload for everybody. It's OK if your solution isn't perfect. Every
+little bit helps and perhaps we can improve on it.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
