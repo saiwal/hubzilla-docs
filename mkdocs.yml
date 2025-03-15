@@ -76,7 +76,7 @@ nav:
     - dev/index.md 
     - Database Tables:
       - dev/database/index.md 
-      - abconfig: 
+      - abconfig: dev/database/db_abconfig.md
       - abook: dev/database/db_abook.md 
       - account: dev/database/db_account.md
       - addon: dev/database/db_addon.md
