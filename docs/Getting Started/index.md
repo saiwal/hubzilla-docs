@@ -1,4 +1,4 @@
-### Overview
+# Overview
 
 Hubzilla is more than a simple web application. It is a
 complex communications system which more closely resembles an email server
