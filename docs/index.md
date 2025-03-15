@@ -1,4 +1,4 @@
-# 1.1 About
+# About
 
 ## What is Hubzilla?
 

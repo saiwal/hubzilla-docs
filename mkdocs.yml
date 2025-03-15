@@ -43,6 +43,7 @@ nav:
       - About The Project: about/project/governance.md
       - Credits: about/project/credits.md
       - Privacy: about/gdpr.md
+  - Getting Started: start/index.md
   - Member Guide: 
     - member/index.md 
     - Features: member/features.md
