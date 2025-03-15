@@ -1,4 +1,4 @@
-### Before you begin
+# Before you begin
 
 #### Choose a domain name or subdomain name for your server
 
