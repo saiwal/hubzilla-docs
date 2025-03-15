@@ -55,13 +55,13 @@ markdown_extensions:
   - tables
 
 # Page tree
-# nav:
-#   - Home: 
-#     - index.md 
-#     - About Hubzilla Project: 
-#       - about/project/index.md
-#       - Credits: about/project/credits.md
-#       - Privacy: about/gdpr.md
+ nav:
+   - Home: 
+     - index.md 
+     - About Hubzilla Project: 
+       - about/project/index.md
+       - Credits: about/project/credits.md
+       - Privacy: about/gdpr.md
 #     - Release Notes: about/release.md 
 #     - Contributing: about/contribute.md
 #   - Getting Started: 
