@@ -167,6 +167,6 @@ To add a new page to the site’s navigation:
 
 ## After Submission
 
-Once your changes are merged into the version branch (e.g., `10.0.8`), a maintainer will handle merging them into `main` for publishing. Your contribution will then go live at [insert live site URL here, if available], styled beautifully with `mkdocs-material`. Thank you for improving Hubzilla’s documentation!
+Once your changes are merged into the version branch (e.g., `10.0.8`), a maintainer will handle merging them into `main` for publishing. Your contribution will then go live at <https://saiwal.github.io/hubzilla-docs/>, styled beautifully with `mkdocs-material`. Thank you for improving Hubzilla’s documentation!
 
 ---
