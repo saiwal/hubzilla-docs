@@ -1158,55 +1158,55 @@
 <p>Provides the ability to download a file from cloud storage in chunks</p>
 <p>GET /api/z/1.0/filedata</p>
 <p>Required:</p>
-<pre><code>- file_id
-    attach.hash of desired file ('begins with' match)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>- file_id
+    attach.hash of desired file (&#39;begins with&#39; match)
+</code></pre></div>
 <p>Optional:</p>
-<pre><code>- start
+<div class="language-text highlight"><pre><span></span><code>- start
     starting byte of returned data in file (counting from 0)
 
 - length
     length (prior to base64 encoding) of chunk to download
-</code></pre>
+</code></pre></div>
 <p>Returns:</p>
-<pre><code>attach (DB) structure with base64 encoded 'content' comprised of the desired chunk
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>attach (DB) structure with base64 encoded &#39;content&#39; comprised of the desired chunk
+</code></pre></div>
 <p>Example:</p>
-<pre><code>https://xyz.macgirvin.com/api/z/1.0/filedata?f=&amp;file_id=9f5217770fd&amp;start=0&amp;length=48
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>https://xyz.macgirvin.com/api/z/1.0/filedata?f=&amp;file_id=9f5217770fd&amp;start=0&amp;length=48
+</code></pre></div>
 <p>Returns:</p>
-<pre><code>{
+<div class="language-text highlight"><pre><span></span><code>{
 
-    "attach": {
-        "id": "107",
-        "aid": "1",
-        "uid": "2",
-        "hash": "9f5217770fd55d563bd77f84d534d8e119a187514bbd391714626cd9c0e60207",
-        "creator": "pgcJx1IQjuPkx8aI9qheJlBMZzJz-oTPjHy3h5pWlOVOriBO_cSiUhhqwhuZ74TYJ8_ECO3pPiRMWC0q8YPCQg",
-        "filename": "pcxtopbm.c",
-        "filetype": "application/octet-stream",
-        "filesize": "3934",
-        "revision": "0",
-        "folder": "",
-        "flags": "0",
-        "is_dir": "0",
-        "is_photo": "0",
-        "os_storage": "1",
-        "os_path": "",
-        "display_path": "",
-        "content": "LyogcGN4dG9wYm0uYyAtIGNvbnZlcnQgUEMgcGFpbnRicnVzaCAoLnBjeCkgZmls",
-        "created": "2016-07-24 23:13:01",
-        "edited": "2016-07-24 23:13:01",
-        "allow_cid": "",
-        "allow_gid": "",
-        "deny_cid": "",
-        "deny_gid": "",
-        "start": 0,
-        "length": 48
+    &quot;attach&quot;: {
+        &quot;id&quot;: &quot;107&quot;,
+        &quot;aid&quot;: &quot;1&quot;,
+        &quot;uid&quot;: &quot;2&quot;,
+        &quot;hash&quot;: &quot;9f5217770fd55d563bd77f84d534d8e119a187514bbd391714626cd9c0e60207&quot;,
+        &quot;creator&quot;: &quot;pgcJx1IQjuPkx8aI9qheJlBMZzJz-oTPjHy3h5pWlOVOriBO_cSiUhhqwhuZ74TYJ8_ECO3pPiRMWC0q8YPCQg&quot;,
+        &quot;filename&quot;: &quot;pcxtopbm.c&quot;,
+        &quot;filetype&quot;: &quot;application/octet-stream&quot;,
+        &quot;filesize&quot;: &quot;3934&quot;,
+        &quot;revision&quot;: &quot;0&quot;,
+        &quot;folder&quot;: &quot;&quot;,
+        &quot;flags&quot;: &quot;0&quot;,
+        &quot;is_dir&quot;: &quot;0&quot;,
+        &quot;is_photo&quot;: &quot;0&quot;,
+        &quot;os_storage&quot;: &quot;1&quot;,
+        &quot;os_path&quot;: &quot;&quot;,
+        &quot;display_path&quot;: &quot;&quot;,
+        &quot;content&quot;: &quot;LyogcGN4dG9wYm0uYyAtIGNvbnZlcnQgUEMgcGFpbnRicnVzaCAoLnBjeCkgZmls&quot;,
+        &quot;created&quot;: &quot;2016-07-24 23:13:01&quot;,
+        &quot;edited&quot;: &quot;2016-07-24 23:13:01&quot;,
+        &quot;allow_cid&quot;: &quot;&quot;,
+        &quot;allow_gid&quot;: &quot;&quot;,
+        &quot;deny_cid&quot;: &quot;&quot;,
+        &quot;deny_gid&quot;: &quot;&quot;,
+        &quot;start&quot;: 0,
+        &quot;length&quot;: 48
     }
 
 }
-</code></pre>
+</code></pre></div>
 
 
 
@@ -1253,7 +1253,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>

@@ -1186,14 +1186,14 @@ enabled, all options are presented to the member.  If it is not, only scheme, ba
 image, font face, and iconset are available as choices.</p>
 <p>A schema is loaded <em>after</em> the member's personal settings.  Therefore, to allow a member
 to overwrite a particular aspect of a schema you would use the following syntax:</p>
-<pre><code>    if (! $foo)
-        $foo = 'bar';
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>    if (! $foo)
+        $foo = &#39;bar&#39;;
+</code></pre></div>
 <p>However, there are circumstances - particularly with positional elements - where it
 may be desirable (or necessary) to override a member's settings.  In this case, the syntax
 is even simpler:</p>
-<pre><code>        $foo = 'bar';
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>        $foo = &#39;bar&#39;;
+</code></pre></div>
 <p>Members will not thank you for this, however, so only use it when it is required.</p>
 <p>If no personal options are set, and no schema is selected, we will first try to load a schema
 with the file name "default.php".  This file should never be included with a theme.  If it
@@ -1290,7 +1290,7 @@ This gives the schem developer the possiblity to override any style component.</
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
