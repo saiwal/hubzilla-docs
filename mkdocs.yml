@@ -56,22 +56,22 @@ markdown_extensions:
   - tables
 
 # Page tree
-nav:
-  - Home: 
-    - index.md 
-    - About Hubzilla Project: 
-      - about/project/index.md
-      - Credits: about/project/credits.md
-      - Privacy: about/gdpr.md
-      - Release Notes: about/release.md 
-      - Contributing: about/contribute.md
-  - Getting Started: start/
+# nav:
+#   - Home: 
+#     - index.md 
+#     - About Hubzilla Project: 
+#       - about/project/index.md
+#       - Credits: about/project/credits.md
+#       - Privacy: about/gdpr.md
+#       - Release Notes: about/release.md 
+#       - Contributing: about/contribute.md
+#   - Getting Started: start/
 #     - start/index.md
 #     - Preparation: start/prep.md
 #     - Manual Installation: start/manual_install.md 
 #     - Script install: start/script_install.md 
 #     - Docker deployment: start/docker.md     
-#   - Member Guide: 'member/'
+#   - Member Guide: member/
 #   - Administrator Guide:
 #     - admin/index.md 
 #     - Directory: admin/primary_directory.md
