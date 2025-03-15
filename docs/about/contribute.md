@@ -163,7 +163,7 @@ To add a new page to the site’s navigation:
 - **Leverage MkDocs-Material**: Explore its [features](https://squidfunk.github.io/mkdocs-material/) for rich formatting.
 - **Keep it Clear**: Write simply and concisely for all Hubzilla users.
 - **Test Locally**: Use `mkdocs serve` to preview with `mkdocs-material` styling.
-- **Ask for Help**: Stuck? Open an issue on the repo or contact the community (add contact info if applicable).
+- **Ask for Help**: Stuck? Open an issue on the repo or contact the community.
 
 ## After Submission
 
