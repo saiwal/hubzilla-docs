@@ -1,0 +1,8 @@
+nav:
+  - Home: index.md 
+  - Getting Started: start/
+  - User Manual: user/
+  - Admin Manual: admin/
+  - Developers Manual: dev/
+  - API: api/
+  - About: about/
