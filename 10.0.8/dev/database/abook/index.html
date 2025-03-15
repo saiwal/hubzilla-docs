@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../db_abook/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../db_addon/">
+        <link rel="next" href="../account/">
       
       
       <link rel="icon" href="../../../assets/logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>account - Hubzilla Docs</title>
+        <title>abook - Hubzilla Docs</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#account" class="md-skip">
+        <a href="#abook" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              account
+              abook
             
           </span>
         </div>
@@ -229,7 +229,7 @@
   
     
   
-  About
+  Home
 
       </a>
     </li>
@@ -439,7 +439,7 @@
         
   
   <span class="md-ellipsis">
-    About
+    Home
     
   </span>
   
@@ -18986,28 +18986,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../db_abook/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    abook
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -19020,80 +18998,16 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    account
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    account
+    abook
     
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Notes:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#account-flags" class="md-nav__link">
-    <span class="md-ellipsis">
-      Account Flags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#account-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      Account roles
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -19107,11 +19021,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../db_addon/" class="md-nav__link">
+      <a href="../account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Db addon
+    account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Addon
     
   </span>
   
@@ -22593,47 +22529,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Notes:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#account-flags" class="md-nav__link">
-    <span class="md-ellipsis">
-      Account Flags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#account-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      Account roles
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -22651,7 +22546,7 @@
   
 
 
-<h1 id="account">account</h1>
+<h1 id="abook">abook</h1>
 <table>
 <thead>
 <tr>
@@ -22666,8 +22561,8 @@
 </thead>
 <tbody>
 <tr>
-<td>account_id</td>
-<td>table index</td>
+<td>abook_id</td>
+<td>Sequential ID</td>
 <td>int(10) unsigned</td>
 <td>NO</td>
 <td>PRI</td>
@@ -22675,44 +22570,26 @@
 <td>auto_increment</td>
 </tr>
 <tr>
-<td>account_parent</td>
-<td>for hierarchical accounts, the account_id of the parent to this one, if account_parent = account_id, this is the top level account</td>
+<td>abook_account</td>
+<td>account.account_id of the channel which owns this record</td>
 <td>int(10) unsigned</td>
 <td>NO</td>
 <td>MUL</td>
-<td>0</td>
+<td>NULL</td>
 <td></td>
 </tr>
 <tr>
-<td>account_default_channel</td>
-<td>channel_id of channel to connect on login</td>
+<td>abook_channel</td>
+<td>channel.channel_id of the channel which owns this record</td>
 <td>int(10) unsigned</td>
 <td>NO</td>
 <td>MUL</td>
-<td>0</td>
+<td>NULL</td>
 <td></td>
 </tr>
 <tr>
-<td>account_salt</td>
-<td>complexity token for account_password</td>
-<td>char(32)</td>
-<td>NO</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>account_password</td>
-<td>hashed password for this account</td>
-<td>char(255)</td>
-<td>NO</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>account_email</td>
-<td>essentially the login ID, although it is usually possible to login with a channel address</td>
+<td>abook_xchan</td>
+<td>xchan.xchan_hash of the target identity (this channel's connection)</td>
 <td>char(255)</td>
 <td>NO</td>
 <td>MUL</td>
@@ -22720,71 +22597,35 @@
 <td></td>
 </tr>
 <tr>
-<td>account_external</td>
-<td>Currently unused</td>
-<td>char(255)</td>
-<td>NO</td>
-<td>MUL</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>account_language</td>
-<td>default language (closest available browser-accept language when account was created)</td>
-<td>char(16)</td>
-<td>NO</td>
-<td></td>
-<td>en</td>
-<td></td>
-</tr>
-<tr>
-<td>account_created</td>
-<td>timestamp of account creation</td>
-<td>datetime</td>
-<td>NO</td>
-<td></td>
-<td>0000-00-00 00:00:00</td>
-<td></td>
-</tr>
-<tr>
-<td>account_lastlog</td>
-<td>timestamp of last login (or daily update if "remember me" is in effect)</td>
-<td>datetime</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0000-00-00 00:00:00</td>
-<td></td>
-</tr>
-<tr>
-<td>account_flags</td>
-<td>see notes</td>
-<td>int(10) unsigned</td>
+<td>abook_my_perms</td>
+<td>bitfield of all specific permissions granted this connection</td>
+<td>int(11)</td>
 <td>NO</td>
 <td>MUL</td>
 <td>0</td>
 <td></td>
 </tr>
 <tr>
-<td>account_roles</td>
-<td>see notes</td>
-<td>int(10) unsigned</td>
+<td>abook_their_perms</td>
+<td>bitfield of all permissions granted to you by this connection</td>
+<td>int(11)</td>
 <td>NO</td>
 <td>MUL</td>
 <td>0</td>
 <td></td>
 </tr>
 <tr>
-<td>account_reset</td>
-<td>verification token for password reset</td>
-<td>char(255)</td>
+<td>abook_closeness</td>
+<td>"closeness" value for optional affinity tool, 0-99</td>
+<td>tinyint(3) unsigned</td>
 <td>NO</td>
-<td></td>
-<td></td>
+<td>MUL</td>
+<td>99</td>
 <td></td>
 </tr>
 <tr>
-<td>account_expires</td>
-<td>timestamp when account expires and will be deleted</td>
+<td>abook_created</td>
+<td>Datetime this record was created</td>
 <td>datetime</td>
 <td>NO</td>
 <td>MUL</td>
@@ -22792,55 +22633,151 @@
 <td></td>
 </tr>
 <tr>
-<td>account_expire_notified</td>
-<td>timestamp of last warning of account expiration</td>
+<td>abook_updated</td>
+<td>Datetime this record was modified</td>
 <td>datetime</td>
 <td>NO</td>
-<td></td>
+<td>MUL</td>
 <td>0000-00-00 00:00:00</td>
 <td></td>
 </tr>
 <tr>
-<td>account_service_class</td>
-<td>service class for this account, determines what if any limits/restrictions are in place</td>
-<td>char(32)</td>
+<td>abook_connected</td>
+<td>datetime of last successful "poll" for this connection</td>
+<td>datetime</td>
 <td>NO</td>
 <td>MUL</td>
-<td></td>
+<td>0000-00-00 00:00:00</td>
 <td></td>
 </tr>
 <tr>
-<td>account_level</td>
-<td>future use</td>
-<td>int(10) unsigned</td>
+<td>abook_dob</td>
+<td>Datetime of connection's birthday converted from <em>their</em> timezone to UTC</td>
+<td>datetime</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_flags</td>
+<td>No longer used</td>
+<td>int(11)</td>
 <td>NO</td>
 <td>MUL</td>
 <td>0</td>
 <td></td>
 </tr>
 <tr>
-<td>account_password_changed</td>
-<td>timestamp of last password change - to limit account deletion for 48 hours to prevent malicious activity</td>
-<td>datetime</td>
+<td>abook_profile</td>
+<td>profile.guid of profile to display to this connection if authenticated</td>
+<td>char(64)</td>
 <td>NO</td>
 <td>MUL</td>
-<td>0000-00-00 00:00:00</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>abook_blocked</td>
+<td>Bi-directional communications with this channel are blocked, regardless of other permissions</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_ignored</td>
+<td>Incoming communications from this channel are blocked, regardless of other permissions</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_hidden</td>
+<td>This connection will not be shown as a connection to anybody but the channel owner</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_archived</td>
+<td>This connection is likely non-functioning and the entry and conversations are preserved, but further polled communications will not be attempted</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_pending</td>
+<td>A connection request was received from this channel but has not been approved by the channel owner, public communications may still be visible but no additional permissions have been granted</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_unconnected</td>
+<td>currently unused. Projected usage is to indicate "one-way" connections which were instigated on this end but are still pending on the remote end</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_self</td>
+<td>is a special case where the owner is the target. Every channel has one abook entry with abook_self and with a target abook_xchan set to channel.channel_hash. When this flag is present, abook_my_perms is the default permissions granted to all new connections and several other fields are unused</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_feed</td>
+<td>indicates this connection is an RSS/Atom feed and may trigger special handling</td>
+<td>int(11)</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_incl</td>
+<td>connection filter allow rules separated by LF</td>
+<td>text</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_excl</td>
+<td>connection filter deny rules separated by LF</td>
+<td>text</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>abook_instance</td>
+<td>comma separated list of site urls of all channel clones that this connection is connected with (used only for singleton networks which don't support cloning)</td>
+<td>text</td>
+<td>NO</td>
+<td>MUL</td>
+<td>0</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="notes">Notes:</h2>
-<h3 id="account-flags">Account Flags</h3>
-<p>define ( 'ACCOUNT_OK',           0x0000 );
-define ( 'ACCOUNT_UNVERIFIED',   0x0001 );
-define ( 'ACCOUNT_BLOCKED',      0x0002 );
-define ( 'ACCOUNT_EXPIRED',      0x0004 );
-define ( 'ACCOUNT_REMOVED',      0x0008 );
-define ( 'ACCOUNT_PENDING',      0x0010 );</p>
-<h3 id="account-roles">Account roles</h3>
-<p>define ( 'ACCOUNT_ROLE_SYSTEM',    0x0002 ); // 2 - this is the special system account
-define ( 'ACCOUNT_ROLE_DEVELOPER', 0x0004 );
-define ( 'ACCOUNT_ROLE_ADMIN',     0x1000 ); // 4096 - this account is an administrator</p>
 
 
 
