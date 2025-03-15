@@ -36,7 +36,7 @@ This is the simplest way to make changes without installing anything.
 #### Edit the File
 
 - Click the pencil icon (✏️) in the top-right corner of any `.md` file to edit.
-- Make your changes using Markdown (e.g., add text, headers with `#`, lists with `-`, or code blocks with ```). The `mkdocs-material` theme supports rich formatting—see its [reference](https://squidfunk.github.io/mkdocs-material/reference/) for options like admonitions or tables.
+- Make your changes using Markdown (e.g., add text, headers with `#`, lists with `-`, or code blocks with \`\`\`). The `mkdocs-material` theme supports rich formatting—see its [reference](https://squidfunk.github.io/mkdocs-material/reference/) for options like admonitions or tables.
 - If creating a new file, name it descriptively (e.g., `new-feature.md`) and add your content.
 
 #### Preview Your Changes
@@ -65,7 +65,7 @@ If you prefer working locally and previewing the site with `mkdocs-material`, us
 
 #### Fork the Repository
 
-- Go to `https://github.com/saiwal/hubzilla-docs`.
+- Go to <https://github.com/saiwal/hubzilla-docs>.
 - Click “Fork” to create a copy under your GitHub account.
 
 #### Clone Your Fork
