@@ -1,0 +1,4980 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>Smarty Internal TemplateCompilerBase - Hubzilla Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#smarty_internal_templatecompilerbase" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Hubzilla Docs" class="md-header__button md-logo" aria-label="Hubzilla Docs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hubzilla Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Smarty Internal TemplateCompilerBase
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/saiwal/hubzilla-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    saiwal/hubzilla-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../start/" class="md-tabs__link">
+          
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../member/" class="md-tabs__link">
+          
+  
+    
+  
+  Member Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../admin/" class="md-tabs__link">
+          
+  
+    
+  
+  Administrator Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+    
+  
+  Developers Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../api/" class="md-tabs__link">
+          
+  
+    
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Hubzilla Docs" class="md-nav__button md-logo" aria-label="Hubzilla Docs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Hubzilla Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/saiwal/hubzilla-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    saiwal/hubzilla-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../about/project/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    About Hubzilla Project
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            About Hubzilla Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/project/credits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/gdpr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Privacy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/release/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/contribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../start/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../start/prep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preparation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../start/manual_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manual Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../start/script_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Script install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../start/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../member/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Member Guide
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Member Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../member/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../admin/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Administrator Guide
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Administrator Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../admin/primary_directory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Directory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../admin/hub_snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hub Snapshots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../admin/widgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Widgets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Developers Guide
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Developers Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../database/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Database Tables
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Database Tables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_abconfig.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    abconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_abook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    abook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_addon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    addon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    app
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_attach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    attach
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_auth_codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    auth_codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_cal.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_channel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_chat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_chatpresence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    chatpresence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_chatroom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    chatroom
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_clients/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    clients
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_conv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    conv
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    event
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_pgrp_member/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pgrp_member
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_pgrp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pgrp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_hook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_hubloc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hubloc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_iconfig.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_issue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    issue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_item/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_item_id/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item_id
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_likes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    likes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_mail/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    menu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_menu_items.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    menu_items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_notify/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    notify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_obj/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    obj
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_outq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    outq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_pconfig/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_photo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    photo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_poll/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    poll
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_poll_elm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    poll_elm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_profdef/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    profdef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_profext/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    profext
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_profile_check/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    profile_check
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    register
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    session
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_shares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    shares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_sign/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sign
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    source
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_sys_perms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sys_perms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_term/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    term
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tokens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_verify/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    verify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_vote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vote
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xchan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xchan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xchat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xchat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xconfig/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xign/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xign
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xlink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xlink
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xperm.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xperm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xprof/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xprof
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database/db_xtag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xtag
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../derivedtheme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Derived Theme
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../filesync/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filesync and Clone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schema system
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../translations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translating
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../zot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../api/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_tag_objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      _tag_objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefixvariablenumber" class="md-nav__link">
+    <span class="md-ellipsis">
+      prefixVariableNumber
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smarty" class="md-nav__link">
+    <span class="md-ellipsis">
+      smarty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      parser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nocache_hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      nocache_hash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suppressnocacheprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      suppressNocacheProcessing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_tag_stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      _tag_stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_tag_stack_count" class="md-nav__link">
+    <span class="md-ellipsis">
+      _tag_stack_count
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required_plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      required_plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required_plugins_stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      required_plugins_stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mergedsubtemplatesdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      mergedSubTemplatesData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mergedsubtemplatescode" class="md-nav__link">
+    <span class="md-ellipsis">
+      mergedSubTemplatesCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templateproperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      templateProperties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace_line_offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      trace_line_offset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace_uid" class="md-nav__link">
+    <span class="md-ellipsis">
+      trace_uid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace_filepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      trace_filepath
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace_stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      trace_stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default_handler_plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      default_handler_plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default_modifier_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      default_modifier_list
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forcenocache" class="md-nav__link">
+    <span class="md-ellipsis">
+      forceNocache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write_compiled_code" class="md-nav__link">
+    <span class="md-ellipsis">
+      write_compiled_code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tpl_function" class="md-nav__link">
+    <span class="md-ellipsis">
+      tpl_function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#called_functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      called_functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockorfunctioncode" class="md-nav__link">
+    <span class="md-ellipsis">
+      blockOrFunctionCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifier_plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      modifier_plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known_modifier_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      known_modifier_type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent_compiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      parent_compiler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nocache" class="md-nav__link">
+    <span class="md-ellipsis">
+      nocache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag_nocache" class="md-nav__link">
+    <span class="md-ellipsis">
+      tag_nocache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefix_code" class="md-nav__link">
+    <span class="md-ellipsis">
+      prefix_code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usedprefixvariables" class="md-nav__link">
+    <span class="md-ellipsis">
+      usedPrefixVariables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefixcodestack" class="md-nav__link">
+    <span class="md-ellipsis">
+      prefixCodeStack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_code" class="md-nav__link">
+    <span class="md-ellipsis">
+      has_code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_variable_string" class="md-nav__link">
+    <span class="md-ellipsis">
+      has_variable_string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable_filter_stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      variable_filter_stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable_filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      variable_filters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loopnesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      loopNesting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stripregex" class="md-nav__link">
+    <span class="md-ellipsis">
+      stripRegEx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin_search_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      plugin_search_order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      _cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldelpreg" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldelPreg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdelpreg" class="md-nav__link">
+    <span class="md-ellipsis">
+      rdelPreg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdellength" class="md-nav__link">
+    <span class="md-ellipsis">
+      rdelLength
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldellength" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldelLength
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#literalpreg" class="md-nav__link">
+    <span class="md-ellipsis">
+      literalPreg
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__construct" class="md-nav__link">
+    <span class="md-ellipsis">
+      __construct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiletemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileTemplate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiletemplatesource" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileTemplateSource
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      postFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      preFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiletag" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileTag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilevariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileVariable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compileconfigvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileConfigVariable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilephpfunctioncall" class="md-nav__link">
+    <span class="md-ellipsis">
+      compilePHPFunctionCall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntaxmatchesvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      syntaxMatchesVariable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processtext" class="md-nav__link">
+    <span class="md-ellipsis">
+      processText
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calltagcompiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      callTagCompiler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettagcompiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      getTagCompiler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getplugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      getPlugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpluginfromdefaulthandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      getPluginFromDefaultHandler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      appendCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processnocachecode" class="md-nav__link">
+    <span class="md-ellipsis">
+      processNocacheCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      getId
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvariablename" class="md-nav__link">
+    <span class="md-ellipsis">
+      getVariableName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnocacheinvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      setNocacheInVariable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      convertScope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makenocachecode" class="md-nav__link">
+    <span class="md-ellipsis">
+      makeNocacheCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger_template_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      trigger_template_error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvarexport" class="md-nav__link">
+    <span class="md-ellipsis">
+      getVarExport
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterdoublequote" class="md-nav__link">
+    <span class="md-ellipsis">
+      enterDoubleQuote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettagstackcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      getTagStackCount
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replacedelimiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      replaceDelimiter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initdelimiterpreg" class="md-nav__link">
+    <span class="md-ellipsis">
+      initDelimiterPreg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leavedoublequote" class="md-nav__link">
+    <span class="md-ellipsis">
+      leaveDoubleQuote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getldelpreg" class="md-nav__link">
+    <span class="md-ellipsis">
+      getLdelPreg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrdelpreg" class="md-nav__link">
+    <span class="md-ellipsis">
+      getRdelPreg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getldellength" class="md-nav__link">
+    <span class="md-ellipsis">
+      getLdelLength
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrdellength" class="md-nav__link">
+    <span class="md-ellipsis">
+      getRdelLength
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getopenblocktag" class="md-nav__link">
+    <span class="md-ellipsis">
+      getOpenBlockTag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      isVariable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnewprefixvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      getNewPrefixVariable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprefixvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      getPrefixVariable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendprefixcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      appendPrefixCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprefixcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      getPrefixCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saverequiredplugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      saveRequiredPlugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restorerequiredplugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      restoreRequiredPlugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilerequiredplugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileRequiredPlugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilecheckplugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileCheckPlugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docompile" class="md-nav__link">
+    <span class="md-ellipsis">
+      doCompile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cstylecomment" class="md-nav__link">
+    <span class="md-ellipsis">
+      cStyleComment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiletag2" class="md-nav__link">
+    <span class="md-ellipsis">
+      compileTag2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<hr />
+<h1 id="smarty_internal_templatecompilerbase">Smarty_Internal_TemplateCompilerBase</h1>
+<p>Main abstract compiler class</p>
+<ul>
+<li>Full name: <code>\Smarty_Internal_TemplateCompilerBase</code></li>
+<li>This class is an <strong>Abstract class</strong></li>
+</ul>
+<h2 id="properties">Properties</h2>
+<h3 id="_tag_objects">_tag_objects</h3>
+<p>compile tag objects cache</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">public static array $_tag_objects</span>
+</span></code></pre></div>
+<ul>
+<li>This property is <strong>static</strong>.</li>
+</ul>
+<hr />
+<h3 id="prefixvariablenumber">prefixVariableNumber</h3>
+<p>counter for prefix variable number</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public static int $prefixVariableNumber</span>
+</span></code></pre></div>
+<ul>
+<li>This property is <strong>static</strong>.</li>
+</ul>
+<hr />
+<h3 id="smarty">smarty</h3>
+<p>Smarty object</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">public \Smarty $smarty</span>
+</span></code></pre></div>
+<hr />
+<h3 id="parser">parser</h3>
+<p>Parser object</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">public \Smarty_Internal_Templateparser $parser</span>
+</span></code></pre></div>
+<hr />
+<h3 id="nocache_hash">nocache_hash</h3>
+<p>hash for nocache sections</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">public mixed $nocache_hash</span>
+</span></code></pre></div>
+<hr />
+<h3 id="suppressnocacheprocessing">suppressNocacheProcessing</h3>
+<p>suppress generation of nocache code</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="x">public bool $suppressNocacheProcessing</span>
+</span></code></pre></div>
+<hr />
+<h3 id="caching">caching</h3>
+<p>caching enabled (copied from template object)</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="x">public int $caching</span>
+</span></code></pre></div>
+<hr />
+<h3 id="_tag_stack">_tag_stack</h3>
+<p>tag stack</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="x">public array $_tag_stack</span>
+</span></code></pre></div>
+<hr />
+<h3 id="_tag_stack_count">_tag_stack_count</h3>
+<p>tag stack count</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="x">public array $_tag_stack_count</span>
+</span></code></pre></div>
+<hr />
+<h3 id="required_plugins">required_plugins</h3>
+<p>Plugins used by template</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">public array $required_plugins</span>
+</span></code></pre></div>
+<hr />
+<h3 id="required_plugins_stack">required_plugins_stack</h3>
+<p>Required plugins stack</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="x">public array $required_plugins_stack</span>
+</span></code></pre></div>
+<hr />
+<h3 id="template">template</h3>
+<p>current template</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="x">public \Smarty_Internal_Template $template</span>
+</span></code></pre></div>
+<hr />
+<h3 id="mergedsubtemplatesdata">mergedSubTemplatesData</h3>
+<p>merged included sub template data</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x">public array $mergedSubTemplatesData</span>
+</span></code></pre></div>
+<hr />
+<h3 id="mergedsubtemplatescode">mergedSubTemplatesCode</h3>
+<p>merged sub template code</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="x">public array $mergedSubTemplatesCode</span>
+</span></code></pre></div>
+<hr />
+<h3 id="templateproperties">templateProperties</h3>
+<p>collected template properties during compilation</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="x">public array $templateProperties</span>
+</span></code></pre></div>
+<hr />
+<h3 id="trace_line_offset">trace_line_offset</h3>
+<p>source line offset for error messages</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="x">public int $trace_line_offset</span>
+</span></code></pre></div>
+<hr />
+<h3 id="trace_uid">trace_uid</h3>
+<p>trace uid</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="x">public string $trace_uid</span>
+</span></code></pre></div>
+<hr />
+<h3 id="trace_filepath">trace_filepath</h3>
+<p>trace file path</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="x">public string $trace_filepath</span>
+</span></code></pre></div>
+<hr />
+<h3 id="trace_stack">trace_stack</h3>
+<p>stack for tracing file and line of nested {block} tags</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="x">public array $trace_stack</span>
+</span></code></pre></div>
+<hr />
+<h3 id="default_handler_plugins">default_handler_plugins</h3>
+<p>plugins loaded by default plugin handler</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="x">public array $default_handler_plugins</span>
+</span></code></pre></div>
+<hr />
+<h3 id="default_modifier_list">default_modifier_list</h3>
+<p>saved preprocessed modifier list</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="x">public mixed $default_modifier_list</span>
+</span></code></pre></div>
+<hr />
+<h3 id="forcenocache">forceNocache</h3>
+<p>force compilation of complete template as nocache</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="x">public bool $forceNocache</span>
+</span></code></pre></div>
+<hr />
+<h3 id="write_compiled_code">write_compiled_code</h3>
+<p>flag if compiled template file shall we written</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="x">public bool $write_compiled_code</span>
+</span></code></pre></div>
+<hr />
+<h3 id="tpl_function">tpl_function</h3>
+<p>Template functions</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="x">public array $tpl_function</span>
+</span></code></pre></div>
+<hr />
+<h3 id="called_functions">called_functions</h3>
+<p>called sub functions from template function</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="x">public array $called_functions</span>
+</span></code></pre></div>
+<hr />
+<h3 id="blockorfunctioncode">blockOrFunctionCode</h3>
+<p>compiled template or block function code</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="x">public string $blockOrFunctionCode</span>
+</span></code></pre></div>
+<hr />
+<h3 id="modifier_plugins">modifier_plugins</h3>
+<p>flags for used modifier plugins</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="x">public array $modifier_plugins</span>
+</span></code></pre></div>
+<hr />
+<h3 id="known_modifier_type">known_modifier_type</h3>
+<p>type of already compiled modifier</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="x">public array $known_modifier_type</span>
+</span></code></pre></div>
+<hr />
+<h3 id="parent_compiler">parent_compiler</h3>
+<p>parent compiler object for merged subtemplates and template functions</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="x">public \Smarty_Internal_TemplateCompilerBase $parent_compiler</span>
+</span></code></pre></div>
+<hr />
+<h3 id="nocache">nocache</h3>
+<p>Flag true when compiling nocache section</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="x">public bool $nocache</span>
+</span></code></pre></div>
+<hr />
+<h3 id="tag_nocache">tag_nocache</h3>
+<p>Flag true when tag is compiled as nocache</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="x">public bool $tag_nocache</span>
+</span></code></pre></div>
+<hr />
+<h3 id="prefix_code">prefix_code</h3>
+<p>Compiled tag prefix code</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="x">public array $prefix_code</span>
+</span></code></pre></div>
+<hr />
+<h3 id="usedprefixvariables">usedPrefixVariables</h3>
+<p>used prefix variables by current compiled tag</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="x">public array $usedPrefixVariables</span>
+</span></code></pre></div>
+<hr />
+<h3 id="prefixcodestack">prefixCodeStack</h3>
+<p>Prefix code  stack</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="x">public array $prefixCodeStack</span>
+</span></code></pre></div>
+<hr />
+<h3 id="has_code">has_code</h3>
+<p>Tag has compiled code</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="x">public bool $has_code</span>
+</span></code></pre></div>
+<hr />
+<h3 id="has_variable_string">has_variable_string</h3>
+<p>A variable string was compiled</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="x">public bool $has_variable_string</span>
+</span></code></pre></div>
+<hr />
+<h3 id="variable_filter_stack">variable_filter_stack</h3>
+<p>Stack for {setfilter} {/setfilter}</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="x">public array $variable_filter_stack</span>
+</span></code></pre></div>
+<hr />
+<h3 id="variable_filters">variable_filters</h3>
+<p>variable filters for {setfilter} {/setfilter}</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="x">public array $variable_filters</span>
+</span></code></pre></div>
+<hr />
+<h3 id="loopnesting">loopNesting</h3>
+<p>Nesting count of looping tags like {foreach}, {for}, {section}, {while}</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="x">public int $loopNesting</span>
+</span></code></pre></div>
+<hr />
+<h3 id="stripregex">stripRegEx</h3>
+<p>Strip preg pattern</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="x">public string $stripRegEx</span>
+</span></code></pre></div>
+<hr />
+<h3 id="plugin_search_order">plugin_search_order</h3>
+<p>plugin search order</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="x">public array $plugin_search_order</span>
+</span></code></pre></div>
+<hr />
+<h3 id="_cache">_cache</h3>
+<p>General storage area for tag compiler plugins</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="x">public array $_cache</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ldelpreg">ldelPreg</h3>
+<p>Lexer preg pattern for left delimiter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="x">private string $ldelPreg</span>
+</span></code></pre></div>
+<hr />
+<h3 id="rdelpreg">rdelPreg</h3>
+<p>Lexer preg pattern for right delimiter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="x">private string $rdelPreg</span>
+</span></code></pre></div>
+<hr />
+<h3 id="rdellength">rdelLength</h3>
+<p>Length of right delimiter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="x">private int $rdelLength</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ldellength">ldelLength</h3>
+<p>Length of left delimiter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="x">private int $ldelLength</span>
+</span></code></pre></div>
+<hr />
+<h3 id="literalpreg">literalPreg</h3>
+<p>Lexer preg pattern for user literals</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="x">private string $literalPreg</span>
+</span></code></pre></div>
+<hr />
+<h2 id="methods">Methods</h2>
+<h3 id="__construct">__construct</h3>
+<p>Initialize compiler</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="x">public __construct(\Smarty $smarty): mixed</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$smarty</code></td>
+<td><strong>\Smarty</strong></td>
+<td>global instance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="compiletemplate">compileTemplate</h3>
+<p>Method to compile a Smarty template</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="x">public compileTemplate(\Smarty_Internal_Template $template, bool $nocache = null, null|\Smarty_Internal_TemplateCompilerBase $parent_compiler = null): bool</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$template</code></td>
+<td><strong>\Smarty_Internal_Template</strong></td>
+<td>template object to compile</td>
+</tr>
+<tr>
+<td><code>$nocache</code></td>
+<td><strong>bool</strong></td>
+<td>true is shall be compiled in nocache mode</td>
+</tr>
+<tr>
+<td><code>$parent_compiler</code></td>
+<td><strong>null&#124;\Smarty_Internal_TemplateCompilerBase</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>true if compiling succeeded, false if it failed</p>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="./Exception.md"><code>Exception</code></a></li>
+</ul>
+<hr />
+<h3 id="compiletemplatesource">compileTemplateSource</h3>
+<p>Compile template source and run optional post filter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="x">public compileTemplateSource(\Smarty_Internal_Template $template, null|bool $nocache = null, \Smarty_Internal_TemplateCompilerBase $parent_compiler = null): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$template</code></td>
+<td><strong>\Smarty_Internal_Template</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>$nocache</code></td>
+<td><strong>null&#124;bool</strong></td>
+<td>flag if template must be compiled in nocache mode</td>
+</tr>
+<tr>
+<td><code>$parent_compiler</code></td>
+<td><strong>\Smarty_Internal_TemplateCompilerBase</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="./Exception.md"><code>Exception</code></a></li>
+</ul>
+<hr />
+<h3 id="postfilter">postFilter</h3>
+<p>Optionally process compiled code by post filter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="x">public postFilter(string $code): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$code</code></td>
+<td><strong>string</strong></td>
+<td>compiled code</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyException/"><code>SmartyException</code></a></li>
+</ul>
+<hr />
+<h3 id="prefilter">preFilter</h3>
+<p>Run optional prefilter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="x">public preFilter(string $_content): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_content</code></td>
+<td><strong>string</strong></td>
+<td>template source</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyException/"><code>SmartyException</code></a></li>
+</ul>
+<hr />
+<h3 id="compiletag">compileTag</h3>
+<p>Compile Tag
+This is a call back from the lexer/parser</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="x">public compileTag(string $tag, array $args, array $parameter = array()): string</span>
+</span></code></pre></div>
+<p>Save current prefix code
+Compile tag
+Merge tag prefix code with saved one
+(required nested tags in attributes)</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$tag</code></td>
+<td><strong>string</strong></td>
+<td>tag name</td>
+</tr>
+<tr>
+<td><code>$args</code></td>
+<td><strong>array</strong></td>
+<td>array with tag attributes</td>
+</tr>
+<tr>
+<td><code>$parameter</code></td>
+<td><strong>array</strong></td>
+<td>array with compilation parameter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>compiled code</p>
+<p><strong>Throws:</strong></p>
+<ul>
+<li>
+<p><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></p>
+</li>
+<li>
+<p><a href="../SmartyException/"><code>SmartyException</code></a></p>
+</li>
+</ul>
+<hr />
+<h3 id="compilevariable">compileVariable</h3>
+<p>compile variable</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="x">public compileVariable(string $variable): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$variable</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="compileconfigvariable">compileConfigVariable</h3>
+<p>compile config variable</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="x">public compileConfigVariable(string $variable): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$variable</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="compilephpfunctioncall">compilePHPFunctionCall</h3>
+<p>compile PHP function call</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="x">public compilePHPFunctionCall(string $name, array $parameter): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$name</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>$parameter</code></td>
+<td><strong>array</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></li>
+</ul>
+<hr />
+<h3 id="syntaxmatchesvariable">syntaxMatchesVariable</h3>
+<p>Determines whether the passed string represents a valid (PHP) variable.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="x">private syntaxMatchesVariable(mixed $string): bool</span>
+</span></code></pre></div>
+<p>This is important, because <code>isset()</code> only works on variables and <code>empty()</code> can only be passed
+a variable prior to php5.5</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$string</code></td>
+<td><strong>mixed</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="processtext">processText</h3>
+<p>This method is called from parser to process a text content section if strip is enabled
+- remove text from inheritance child templates as they may generate output</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="x">public processText(string $text): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$text</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="calltagcompiler">callTagCompiler</h3>
+<p>lazy loads internal compile plugin for tag and calls the compile method
+compile objects cached for reuse.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="x">public callTagCompiler(string $tag, array $args, mixed $param1 = null, mixed $param2 = null, mixed $param3 = null): bool|string</span>
+</span></code></pre></div>
+<p>class name format:  Smarty_Internal_Compile_TagName
+plugin filename format: Smarty_Internal_TagName.php</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$tag</code></td>
+<td><strong>string</strong></td>
+<td>tag name</td>
+</tr>
+<tr>
+<td><code>$args</code></td>
+<td><strong>array</strong></td>
+<td>list of tag attributes</td>
+</tr>
+<tr>
+<td><code>$param1</code></td>
+<td><strong>mixed</strong></td>
+<td>optional parameter</td>
+</tr>
+<tr>
+<td><code>$param2</code></td>
+<td><strong>mixed</strong></td>
+<td>optional parameter</td>
+</tr>
+<tr>
+<td><code>$param3</code></td>
+<td><strong>mixed</strong></td>
+<td>optional parameter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>compiled code or false</p>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></li>
+</ul>
+<hr />
+<h3 id="gettagcompiler">getTagCompiler</h3>
+<p>lazy loads internal compile plugin for tag compile objects cached for reuse.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="x">public getTagCompiler(string $tag): bool|\Smarty_Internal_CompileBase</span>
+</span></code></pre></div>
+<p>class name format:  Smarty_Internal_Compile_TagName
+plugin filename format: Smarty_Internal_TagName.php</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$tag</code></td>
+<td><strong>string</strong></td>
+<td>tag name</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>tag compiler object or false if not found</p>
+<hr />
+<h3 id="getplugin">getPlugin</h3>
+<p>Check for plugins and return function name</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="x">public getPlugin(mixed $plugin_name, string $plugin_type): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$plugin_name</code></td>
+<td><strong>mixed</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>$plugin_type</code></td>
+<td><strong>string</strong></td>
+<td>type of plugin</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>call name of function</p>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyException/"><code>SmartyException</code></a></li>
+</ul>
+<hr />
+<h3 id="getpluginfromdefaulthandler">getPluginFromDefaultHandler</h3>
+<p>Check for plugins by default plugin handler</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="x">public getPluginFromDefaultHandler(string $tag, string $plugin_type): bool</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$tag</code></td>
+<td><strong>string</strong></td>
+<td>name of tag</td>
+</tr>
+<tr>
+<td><code>$plugin_type</code></td>
+<td><strong>string</strong></td>
+<td>type of plugin</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>true if found</p>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></li>
+</ul>
+<hr />
+<h3 id="appendcode">appendCode</h3>
+<p>Append code segments and remove unneeded ?&gt; &lt;?php transitions</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="x">public appendCode(string $left, string $right): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$left</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>$right</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="processnocachecode">processNocacheCode</h3>
+<p>Inject inline code for nocache template sections
+This method gets the content of each template element from the parser.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="x">public processNocacheCode(string $content, bool $is_code): string</span>
+</span></code></pre></div>
+<p>If the content is compiled code and it should be not cached the code is injected
+into the rendered output.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$content</code></td>
+<td><strong>string</strong></td>
+<td>content of template element</td>
+</tr>
+<tr>
+<td><code>$is_code</code></td>
+<td><strong>bool</strong></td>
+<td>true if content is compiled code</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>content</p>
+<hr />
+<h3 id="getid">getId</h3>
+<p>Get Id</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="x">public getId(string $input): bool|string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$input</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="getvariablename">getVariableName</h3>
+<p>Get variable name from string</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="x">public getVariableName(string $input): bool|string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$input</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="setnocacheinvariable">setNocacheInVariable</h3>
+<p>Set nocache flag in variable or create new variable</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="x">public setNocacheInVariable(string $varName): mixed</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$varName</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="convertscope">convertScope</h3>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="x">public convertScope(array $_attr, array $validScopes): int|string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_attr</code></td>
+<td><strong>array</strong></td>
+<td>tag attributes</td>
+</tr>
+<tr>
+<td><code>$validScopes</code></td>
+<td><strong>array</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></li>
+</ul>
+<hr />
+<h3 id="makenocachecode">makeNocacheCode</h3>
+<p>Generate nocache code string</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="x">public makeNocacheCode(string $code): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$code</code></td>
+<td><strong>string</strong></td>
+<td>PHP code</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="trigger_template_error">trigger_template_error</h3>
+<p>display compiler error messages without dying
+If parameter $args is empty it is a parser detected syntax error.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="x">public trigger_template_error(string $args = null, string $line = null, null|bool $tagline = null): mixed</span>
+</span></code></pre></div>
+<p>In this case the parser is called to obtain information about expected tokens.
+If parameter $args contains a string this is used as error message</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$args</code></td>
+<td><strong>string</strong></td>
+<td>individual error message or null</td>
+</tr>
+<tr>
+<td><code>$line</code></td>
+<td><strong>string</strong></td>
+<td>line-number</td>
+</tr>
+<tr>
+<td><code>$tagline</code></td>
+<td><strong>null&#124;bool</strong></td>
+<td>if true the line number of last tag</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Throws:</strong></p>
+<p>when an unexpected token is found</p>
+
+<ul>
+<li><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></li>
+</ul>
+<hr />
+<h3 id="getvarexport">getVarExport</h3>
+<p>Return var_export() value with all white spaces removed</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="x">public getVarExport(mixed $value): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$value</code></td>
+<td><strong>mixed</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="enterdoublequote">enterDoubleQuote</h3>
+<p>enter double quoted string
+ - save tag stack count</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="x">public enterDoubleQuote(): mixed</span>
+</span></code></pre></div>
+<hr />
+<h3 id="gettagstackcount">getTagStackCount</h3>
+<p>Return tag stack count</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="x">public getTagStackCount(): int</span>
+</span></code></pre></div>
+<hr />
+<h3 id="replacedelimiter">replaceDelimiter</h3>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="x">public replaceDelimiter(mixed $lexerPreg): mixed</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$lexerPreg</code></td>
+<td><strong>mixed</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="initdelimiterpreg">initDelimiterPreg</h3>
+<p>Build lexer regular expressions for left and right delimiter and user defined literals</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="x">public initDelimiterPreg(): mixed</span>
+</span></code></pre></div>
+<hr />
+<h3 id="leavedoublequote">leaveDoubleQuote</h3>
+<p>leave double quoted string
+ - throw exception if block in string was not closed</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="x">public leaveDoubleQuote(): mixed</span>
+</span></code></pre></div>
+<p><strong>Throws:</strong></p>
+<ul>
+<li><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></li>
+</ul>
+<hr />
+<h3 id="getldelpreg">getLdelPreg</h3>
+<p>Get left delimiter preg</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="x">public getLdelPreg(): string</span>
+</span></code></pre></div>
+<hr />
+<h3 id="getrdelpreg">getRdelPreg</h3>
+<p>Get right delimiter preg</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="x">public getRdelPreg(): string</span>
+</span></code></pre></div>
+<hr />
+<h3 id="getldellength">getLdelLength</h3>
+<p>Get length of left delimiter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="x">public getLdelLength(): int</span>
+</span></code></pre></div>
+<hr />
+<h3 id="getrdellength">getRdelLength</h3>
+<p>Get length of right delimiter</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="x">public getRdelLength(): int</span>
+</span></code></pre></div>
+<hr />
+<h3 id="getopenblocktag">getOpenBlockTag</h3>
+<p>Get name of current open block tag</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="x">public getOpenBlockTag(): string|bool</span>
+</span></code></pre></div>
+<hr />
+<h3 id="isvariable">isVariable</h3>
+<p>Check if $value contains variable elements</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="x">public isVariable(mixed $value): bool|int</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$value</code></td>
+<td><strong>mixed</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="getnewprefixvariable">getNewPrefixVariable</h3>
+<p>Get new prefix variable name</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="x">public getNewPrefixVariable(): string</span>
+</span></code></pre></div>
+<hr />
+<h3 id="getprefixvariable">getPrefixVariable</h3>
+<p>Get current prefix variable name</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="x">public getPrefixVariable(): string</span>
+</span></code></pre></div>
+<hr />
+<h3 id="appendprefixcode">appendPrefixCode</h3>
+<p>append  code to prefix buffer</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="x">public appendPrefixCode(string $code): mixed</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$code</code></td>
+<td><strong>string</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="getprefixcode">getPrefixCode</h3>
+<p>get prefix code string</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="x">public getPrefixCode(): string</span>
+</span></code></pre></div>
+<hr />
+<h3 id="saverequiredplugins">saveRequiredPlugins</h3>
+<p>Save current required plugins</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="x">public saveRequiredPlugins(bool $init = false): mixed</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$init</code></td>
+<td><strong>bool</strong></td>
+<td>if true init required plugins</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="restorerequiredplugins">restoreRequiredPlugins</h3>
+<p>Restore required plugins</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="x">public restoreRequiredPlugins(): mixed</span>
+</span></code></pre></div>
+<hr />
+<h3 id="compilerequiredplugins">compileRequiredPlugins</h3>
+<p>Compile code to call Smarty_Internal_Template::_checkPlugins()
+for required plugins</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="x">public compileRequiredPlugins(): string</span>
+</span></code></pre></div>
+<hr />
+<h3 id="compilecheckplugins">compileCheckPlugins</h3>
+<p>Compile code to call Smarty_Internal_Template::_checkPlugins
+  - checks if plugin is callable require otherwise</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="x">public compileCheckPlugins(mixed $requiredPlugins): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$requiredPlugins</code></td>
+<td><strong>mixed</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="docompile">doCompile</h3>
+<p>method to compile a Smarty template</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a><span class="x">protected doCompile(mixed $_content, bool $isTemplateSource = false): bool</span>
+</span></code></pre></div>
+<ul>
+<li>This method is <strong>abstract</strong>.</li>
+</ul>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_content</code></td>
+<td><strong>mixed</strong></td>
+<td>template source</td>
+</tr>
+<tr>
+<td><code>$isTemplateSource</code></td>
+<td><strong>bool</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>true if compiling succeeded, false if it failed</p>
+<hr />
+<h3 id="cstylecomment">cStyleComment</h3>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="x">public cStyleComment(mixed $string): mixed</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$string</code></td>
+<td><strong>mixed</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="compiletag2">compileTag2</h3>
+<p>Compile Tag</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a><span class="x">private compileTag2(string $tag, array $args, array $parameter): string</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$tag</code></td>
+<td><strong>string</strong></td>
+<td>tag name</td>
+</tr>
+<tr>
+<td><code>$args</code></td>
+<td><strong>array</strong></td>
+<td>array with tag attributes</td>
+</tr>
+<tr>
+<td><code>$parameter</code></td>
+<td><strong>array</strong></td>
+<td>array with compilation parameter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>compiled code</p>
+<p><strong>Throws:</strong></p>
+<ul>
+<li>
+<p><a href="../SmartyCompilerException/"><code>SmartyCompilerException</code></a></p>
+</li>
+<li>
+<p><a href="../SmartyException/"><code>SmartyException</code></a></p>
+</li>
+</ul>
+<hr />
+<hr />
+<blockquote>
+<p>Automatically generated on 2025-03-15</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.indexes", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
