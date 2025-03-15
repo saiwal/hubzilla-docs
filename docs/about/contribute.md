@@ -47,7 +47,7 @@ This is the simplest way to make changes without installing anything.
 
 - Scroll to the “Commit changes” section.
 - Write a short description (e.g., “Fixed typo in 10.0.8 install guide”).
-- Ensure “Commit directly to the `[version]` branch” (e.g., `10.0.8`) is selected, *or* select “Create a new branch” if you’re proposing a new feature branch (e.g., `10.0.8-fix-typo`).
+- Ensure “Commit directly to the `[version]` branch” (e.g., `10.0.8`) is selected, _or_ select “Create a new branch” if you’re proposing a new feature branch (e.g., `10.0.8-fix-typo`).
 - Click “Commit changes.”
 
 #### Open a Pull Request
@@ -70,44 +70,44 @@ If you prefer working locally and previewing the site with `mkdocs-material`, us
 
 #### Clone Your Fork
 
-- Open a terminal and run:  
-  ```
+- Open a terminal and run:
+  ``` bash
   git clone https://github.com/YOUR-USERNAME/hubzilla-docs.git
   ```
   Replace `YOUR-USERNAME` with your GitHub username.
-- Navigate into the folder:  
-  ```
+- Navigate into the folder:
+  ``` bash
   cd hubzilla-docs
   ```
 
 #### Switch to the Version Branch
 
-- Check out the branch for the version you’re editing:  
-  ```
+- Check out the branch for the version you’re editing:
+  ``` bash
   git checkout 10.0.8
   ```
-  - If it doesn’t exist locally, fetch it:  
-    ```
+  - If it doesn’t exist locally, fetch it:
+    ``` bash
     git fetch origin
     git checkout 10.0.8
     ```
-  - If the branch isn’t in the repo yet, create it:  
-    ```
+  - If the branch isn’t in the repo yet, create it:
+    ``` bash
     git checkout -b 10.0.8
     ```
 
 #### Set Up MkDocs and MkDocs-Material Locally
 
 - Ensure Python is installed ([python.org](https://www.python.org/)).
-- Install MkDocs and `mkdocs-material`:  
-  ```
+- Install MkDocs and `mkdocs-material`:
+  ``` bash
   pip install mkdocs mkdocs-material
   ```
 
 #### Preview the Site
 
-- Run:  
-  ```
+- Run:
+  ``` bash
   mkdocs serve
   ```
 - Visit `http://localhost:8000` to see the live site with `mkdocs-material` styling as you edit.
@@ -116,16 +116,16 @@ If you prefer working locally and previewing the site with `mkdocs-material`, us
 
 - Edit or create `.md` files in the `docs/` folder.
 - Use `mkdocs-material` features like admonitions (e.g., `!!! note`) or tabs—see the [docs](https://squidfunk.github.io/mkdocs-material/).
-- Stage and commit your changes:  
-  ```
+- Stage and commit your changes:
+  ``` bash
   git add .
   git commit -m "Updated 10.0.8 install instructions"
   ```
 
 #### Push to Your Fork
 
-- Push to the version branch in your fork:  
-  ```
+- Push to the version branch in your fork:
+  ``` bash
   git push origin 10.0.8
   ```
 
@@ -145,8 +145,8 @@ To add a new page to the site’s navigation:
 
 ### Modify the Navigation Section
 
-- Find the `nav` section and add your page, e.g.:  
-  ```
+- Find the `nav` section and add your page, e.g.:
+  ``` yaml
   nav:
     - Home: index.md
     - New Page: new-feature.md  # Your new file

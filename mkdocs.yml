@@ -23,6 +23,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.indexes
+    - content.code.copy
   icon:
     repo: fontawesome/brands/github
 
@@ -36,6 +37,15 @@ extra:
   version:
     provider: mike
     alias: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 
 # Page tree
 nav:
