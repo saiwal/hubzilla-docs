@@ -1,4 +1,3 @@
-***
 
 # Smarty_Autoloader
 

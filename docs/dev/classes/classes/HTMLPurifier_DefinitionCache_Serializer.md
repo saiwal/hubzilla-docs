@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_DefinitionCache_Serializer
 

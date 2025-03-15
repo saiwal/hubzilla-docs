@@ -1,4 +1,3 @@
-***
 
 # ClientAssertionTypeInterface
 

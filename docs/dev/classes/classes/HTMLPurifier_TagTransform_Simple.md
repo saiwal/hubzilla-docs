@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_TagTransform_Simple
 

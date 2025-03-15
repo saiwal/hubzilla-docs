@@ -1,4 +1,3 @@
-***
 
 # SimplePie_Content_Type_Sniffer
 

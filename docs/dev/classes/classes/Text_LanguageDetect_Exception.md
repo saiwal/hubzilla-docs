@@ -1,4 +1,3 @@
-***
 
 # Text_LanguageDetect_Exception
 

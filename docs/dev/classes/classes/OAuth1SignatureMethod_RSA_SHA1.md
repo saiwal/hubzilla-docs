@@ -1,4 +1,3 @@
-***
 
 # OAuth1SignatureMethod_RSA_SHA1
 

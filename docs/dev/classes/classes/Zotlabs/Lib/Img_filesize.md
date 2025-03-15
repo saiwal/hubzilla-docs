@@ -1,4 +1,3 @@
-***
 
 # Img_filesize
 

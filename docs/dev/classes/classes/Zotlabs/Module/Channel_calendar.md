@@ -1,4 +1,3 @@
-***
 
 # Channel_calendar
 

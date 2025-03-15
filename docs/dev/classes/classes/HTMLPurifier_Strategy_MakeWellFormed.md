@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_Strategy_MakeWellFormed
 

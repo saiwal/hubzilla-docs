@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_ChildDef_StrictBlockquote
 

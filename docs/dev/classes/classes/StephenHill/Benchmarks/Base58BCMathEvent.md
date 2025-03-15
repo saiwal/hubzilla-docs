@@ -1,4 +1,3 @@
-***
 
 # Base58BCMathEvent
 

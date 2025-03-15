@@ -1,4 +1,3 @@
-***
 
 # Pubsites
 

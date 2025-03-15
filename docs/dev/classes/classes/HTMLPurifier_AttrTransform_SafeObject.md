@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_AttrTransform_SafeObject
 

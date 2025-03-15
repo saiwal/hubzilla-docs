@@ -1,4 +1,3 @@
-***
 
 # getid3_exception
 

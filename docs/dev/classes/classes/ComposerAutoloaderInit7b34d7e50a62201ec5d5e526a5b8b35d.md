@@ -1,4 +1,3 @@
-***
 
 # ComposerAutoloaderInit7b34d7e50a62201ec5d5e526a5b8b35d
 

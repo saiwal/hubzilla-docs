@@ -1,4 +1,3 @@
-***
 
 # JcsEddsa2022Test
 

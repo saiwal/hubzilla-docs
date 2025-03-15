@@ -1,4 +1,3 @@
-***
 
 # Tagcloud_wall
 

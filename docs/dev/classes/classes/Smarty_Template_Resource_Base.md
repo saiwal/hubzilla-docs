@@ -1,4 +1,3 @@
-***
 
 # Smarty_Template_Resource_Base
 

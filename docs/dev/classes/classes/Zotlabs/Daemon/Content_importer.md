@@ -1,4 +1,3 @@
-***
 
 # Content_importer
 

@@ -1,4 +1,3 @@
-***
 
 # Apschema
 

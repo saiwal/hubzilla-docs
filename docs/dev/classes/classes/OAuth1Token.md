@@ -1,4 +1,3 @@
-***
 
 # OAuth1Token
 

@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_HTMLModule_SafeEmbed
 

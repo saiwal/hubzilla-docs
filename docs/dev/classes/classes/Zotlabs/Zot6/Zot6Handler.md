@@ -1,4 +1,3 @@
-***
 
 # Zot6Handler
 

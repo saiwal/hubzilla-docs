@@ -1,4 +1,3 @@
-***
 
 # TPC_yyStackEntry
 

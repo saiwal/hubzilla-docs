@@ -1,4 +1,3 @@
-***
 
 # Smarty_Template_Compiled
 

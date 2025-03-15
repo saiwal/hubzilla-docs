@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_URIScheme_tel
 

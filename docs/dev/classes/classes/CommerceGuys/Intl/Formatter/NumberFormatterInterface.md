@@ -1,4 +1,3 @@
-***
 
 # NumberFormatterInterface
 

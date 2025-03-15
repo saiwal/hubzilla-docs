@@ -1,4 +1,3 @@
-***
 
 # TypeInterface
 

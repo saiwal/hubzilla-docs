@@ -1,4 +1,3 @@
-***
 
 # InvalidComponentType
 

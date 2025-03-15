@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_ConfigSchema_Interchange_Id
 

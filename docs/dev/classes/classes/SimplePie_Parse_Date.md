@@ -1,4 +1,3 @@
-***
 
 # SimplePie_Parse_Date
 

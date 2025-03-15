@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_URIFilter_DisableExternal
 

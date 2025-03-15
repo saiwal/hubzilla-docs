@@ -1,4 +1,3 @@
-***
 
 # Smarty_Internal_Config_File_Compiler
 

@@ -1,4 +1,3 @@
-***
 
 # Settings_menu
 

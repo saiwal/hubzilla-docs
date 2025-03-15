@@ -1,4 +1,3 @@
-***
 
 # OAuth1SignatureMethod_HMAC_SHA1
 

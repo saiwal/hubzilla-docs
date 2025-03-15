@@ -1,4 +1,3 @@
-***
 
 # ContainsAttributeTest
 

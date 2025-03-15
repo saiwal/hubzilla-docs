@@ -1,4 +1,3 @@
-***
 
 # Cloud_tiles
 

@@ -1,4 +1,3 @@
-***
 
 # SystemNodeProvider
 

@@ -1,4 +1,3 @@
-***
 
 # Slinky_Ur1ca
 

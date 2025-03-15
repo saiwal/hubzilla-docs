@@ -1,4 +1,3 @@
-***
 
 # LanguageResult
 

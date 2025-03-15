@@ -1,4 +1,3 @@
-***
 
 # LightOpenIDProvider
 

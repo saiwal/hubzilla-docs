@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_AttrDef_URI_Email
 

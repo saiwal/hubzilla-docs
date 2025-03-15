@@ -1,4 +1,3 @@
-***
 
 # Smarty_CacheResource_Pdo_Gzip
 

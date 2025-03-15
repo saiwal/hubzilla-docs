@@ -1,4 +1,3 @@
-***
 
 # SimplePie_Registry
 

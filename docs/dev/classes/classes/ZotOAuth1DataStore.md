@@ -1,4 +1,3 @@
-***
 
 # ZotOAuth1DataStore
 

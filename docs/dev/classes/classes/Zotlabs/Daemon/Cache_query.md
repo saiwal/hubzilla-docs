@@ -1,4 +1,3 @@
-***
 
 # Cache_query
 

@@ -1,4 +1,3 @@
-***
 
 # Xchan_photo
 

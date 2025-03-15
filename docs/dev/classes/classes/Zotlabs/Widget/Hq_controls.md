@@ -1,4 +1,3 @@
-***
 
 # Hq_controls
 

@@ -1,4 +1,3 @@
-***
 
 # Cover_photo
 

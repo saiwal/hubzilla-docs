@@ -1,4 +1,3 @@
-***
 
 # Net_IDNA_php4
 

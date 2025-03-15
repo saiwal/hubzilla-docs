@@ -1,4 +1,3 @@
-***
 
 # Catcloud_wall
 

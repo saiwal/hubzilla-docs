@@ -1,4 +1,3 @@
-***
 
 # SettingsContainerInterface
 

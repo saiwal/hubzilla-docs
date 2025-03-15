@@ -1,4 +1,3 @@
-***
 
 # Common_friends
 

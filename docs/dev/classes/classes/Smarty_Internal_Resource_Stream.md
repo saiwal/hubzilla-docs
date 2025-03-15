@@ -1,4 +1,3 @@
-***
 
 # Smarty_Internal_Resource_Stream
 

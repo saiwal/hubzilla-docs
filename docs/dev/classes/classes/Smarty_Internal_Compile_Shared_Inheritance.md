@@ -1,4 +1,3 @@
-***
 
 # Smarty_Internal_Compile_Shared_Inheritance
 

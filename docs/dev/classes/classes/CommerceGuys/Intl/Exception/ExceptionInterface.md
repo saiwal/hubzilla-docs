@@ -1,4 +1,3 @@
-***
 
 # ExceptionInterface
 

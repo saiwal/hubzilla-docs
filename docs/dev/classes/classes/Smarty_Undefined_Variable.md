@@ -1,4 +1,3 @@
-***
 
 # Smarty_Undefined_Variable
 

@@ -1,4 +1,3 @@
-***
 
 # CompFilter
 

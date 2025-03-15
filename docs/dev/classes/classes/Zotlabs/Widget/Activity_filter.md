@@ -1,4 +1,3 @@
-***
 
 # Activity_filter
 

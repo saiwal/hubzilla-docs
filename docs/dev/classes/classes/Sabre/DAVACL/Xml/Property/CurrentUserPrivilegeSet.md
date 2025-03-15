@@ -1,4 +1,3 @@
-***
 
 # CurrentUserPrivilegeSet
 

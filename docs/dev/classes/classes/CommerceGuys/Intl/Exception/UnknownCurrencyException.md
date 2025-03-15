@@ -1,4 +1,3 @@
-***
 
 # UnknownCurrencyException
 

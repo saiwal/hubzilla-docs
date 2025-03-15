@@ -1,4 +1,3 @@
-***
 
 # Smarty_Internal_Runtime_Make_Nocache
 

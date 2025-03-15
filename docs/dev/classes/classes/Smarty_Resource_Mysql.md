@@ -1,4 +1,3 @@
-***
 
 # Smarty_Resource_Mysql
 

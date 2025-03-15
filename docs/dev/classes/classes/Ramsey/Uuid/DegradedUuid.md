@@ -1,4 +1,3 @@
-***
 
 # DegradedUuid
 

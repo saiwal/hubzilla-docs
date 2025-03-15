@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_ConfigSchema_Builder_Xml
 

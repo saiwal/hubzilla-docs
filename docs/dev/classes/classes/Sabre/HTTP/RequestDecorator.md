@@ -1,4 +1,3 @@
-***
 
 # RequestDecorator
 

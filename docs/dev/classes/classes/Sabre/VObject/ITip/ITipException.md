@@ -1,4 +1,3 @@
-***
 
 # ITipException
 

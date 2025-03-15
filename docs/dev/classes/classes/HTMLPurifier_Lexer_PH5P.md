@@ -1,4 +1,3 @@
-***
 
 # HTMLPurifier_Lexer_PH5P
 
