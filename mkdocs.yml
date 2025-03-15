@@ -79,9 +79,7 @@ nav:
     - Widgets: admin/widgets.md
   - Developers Guide:
     - dev/index.md 
-    - Classes: 
-      - dev/classes/index.md
-      - dev/classes/classes/
+    - Classes: dev/classes/
     - Database Tables:
       - dev/database/index.md 
       - abconfig: dev/database/db_abconfig.md
