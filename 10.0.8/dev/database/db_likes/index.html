@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../../derivedtheme/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>abook - Hubzilla Docs</title>
+        <title>Db likes - Hubzilla Docs</title>
       
     
     
@@ -71,11 +67,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#abook" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -110,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              abook
+              Db likes
             
           </span>
         </div>
@@ -305,12 +296,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../" class="md-tabs__link">
           
   
@@ -994,8 +983,6 @@
       
   
   
-    
-  
   
   
     
@@ -1022,17 +1009,14 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           
@@ -1049,13 +1033,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Developers Guide
@@ -1068,8 +1052,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1081,17 +1063,19 @@
       
         
       
+        
+      
     
     
       
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
           
@@ -1100,7 +1084,7 @@
               
   
   <span class="md-ellipsis">
-    Database
+    Database Tables
     
   </span>
   
@@ -1114,10 +1098,10 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
-            Database
+            Database Tables
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1127,19 +1111,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../db_abook/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1149,7 +1124,28 @@
   
 
       </a>
-      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    account
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1376,8 +1372,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -1396,238 +1390,31 @@
   
 
 
-<h1 id="abook">abook</h1>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-<th>Type</th>
-<th>Null</th>
-<th>Key</th>
-<th>Default</th>
-<th>Extra</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>abook_id</td>
-<td>Sequential ID</td>
-<td>int(10) unsigned</td>
-<td>NO</td>
-<td>PRI</td>
-<td>NULL</td>
-<td>auto_increment</td>
-</tr>
-<tr>
-<td>abook_account</td>
-<td>account.account_id of the channel which owns this record</td>
-<td>int(10) unsigned</td>
-<td>NO</td>
-<td>MUL</td>
-<td>NULL</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_channel</td>
-<td>channel.channel_id of the channel which owns this record</td>
-<td>int(10) unsigned</td>
-<td>NO</td>
-<td>MUL</td>
-<td>NULL</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_xchan</td>
-<td>xchan.xchan_hash of the target identity (this channel's connection)</td>
-<td>char(255)</td>
-<td>NO</td>
-<td>MUL</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>abook_my_perms</td>
-<td>bitfield of all specific permissions granted this connection</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_their_perms</td>
-<td>bitfield of all permissions granted to you by this connection</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_closeness</td>
-<td>"closeness" value for optional affinity tool, 0-99</td>
-<td>tinyint(3) unsigned</td>
-<td>NO</td>
-<td>MUL</td>
-<td>99</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_created</td>
-<td>Datetime this record was created</td>
-<td>datetime</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0000-00-00 00:00:00</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_updated</td>
-<td>Datetime this record was modified</td>
-<td>datetime</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0000-00-00 00:00:00</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_connected</td>
-<td>datetime of last successful "poll" for this connection</td>
-<td>datetime</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0000-00-00 00:00:00</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_dob</td>
-<td>Datetime of connection's birthday converted from <em>their</em> timezone to UTC</td>
-<td>datetime</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0000-00-00 00:00:00</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_flags</td>
-<td>No longer used</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_profile</td>
-<td>profile.guid of profile to display to this connection if authenticated</td>
-<td>char(64)</td>
-<td>NO</td>
-<td>MUL</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>abook_blocked</td>
-<td>Bi-directional communications with this channel are blocked, regardless of other permissions</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_ignored</td>
-<td>Incoming communications from this channel are blocked, regardless of other permissions</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_hidden</td>
-<td>This connection will not be shown as a connection to anybody but the channel owner</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_archived</td>
-<td>This connection is likely non-functioning and the entry and conversations are preserved, but further polled communications will not be attempted</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_pending</td>
-<td>A connection request was received from this channel but has not been approved by the channel owner, public communications may still be visible but no additional permissions have been granted</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_unconnected</td>
-<td>currently unused. Projected usage is to indicate "one-way" connections which were instigated on this end but are still pending on the remote end</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_self</td>
-<td>is a special case where the owner is the target. Every channel has one abook entry with abook_self and with a target abook_xchan set to channel.channel_hash. When this flag is present, abook_my_perms is the default permissions granted to all new connections and several other fields are unused</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_feed</td>
-<td>indicates this connection is an RSS/Atom feed and may trigger special handling</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_incl</td>
-<td>connection filter allow rules separated by LF</td>
-<td>text</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_excl</td>
-<td>connection filter deny rules separated by LF</td>
-<td>text</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>abook_instance</td>
-<td>comma separated list of site urls of all channel clones that this connection is connected with (used only for singleton networks which don't support cloning)</td>
-<td>text</td>
-<td>NO</td>
-<td>MUL</td>
-<td>0</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+  <h1>Db likes</h1>
+
+<p>[table]
+[tr][th]Field[/th][th]Description[/th][th]Type[/th][th]Null[/th][th]Key[/th][th]Default[/th][th]Extra
+[/th][/tr]
+[tr][td]id[/td][td][/td][td]int(10) unsigned[/td][td]NO[/td][td]PRI[/td][td]NULL[/td][td]auto_increment
+[/td][/tr]
+[tr][td]channel_id[/td][td][/td][td]int(11) unsigned[/td][td]NO[/td][td]MUL[/td][td]0[/td][td]
+[/td][/tr]
+[tr][td]liker[/td][td][/td][td]char(128)[/td][td]NO[/td][td]MUL[/td][td][/td][td]
+[/td][/tr]
+[tr][td]likee[/td][td][/td][td]char(128)[/td][td]NO[/td][td]MUL[/td][td][/td][td]
+[/td][/tr]
+[tr][td]iid[/td][td][/td][td]int(10) unsigned[/td][td]NO[/td][td]MUL[/td][td]0[/td][td]
+[/td][/tr]
+[tr][td]verb[/td][td][/td][td]char(255)[/td][td]NO[/td][td]MUL[/td][td][/td][td]
+[/td][/tr]
+[tr][td]target_type[/td][td][/td][td]char(255)[/td][td]NO[/td][td]MUL[/td][td][/td][td]
+[/td][/tr]
+[tr][td]target_id[/td][td][/td][td]char(128)[/td][td]NO[/td][td]MUL[/td][td][/td][td]
+[/td][/tr]
+[tr][td]target[/td][td][/td][td]mediumtext[/td][td]NO[/td][td][/td][td]NULL[/td][td]
+[/td][/tr]
+[/table]</p>
+<p>Return to [zrl=[baseurl]/help/database]database documentation[/zrl]</p>
 
 
 
