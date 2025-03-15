@@ -29,6 +29,7 @@ theme:
     - navigation.indexes
     - navigation.sections
     - content.code.copy
+    - search.suggest
   icon:
     repo: fontawesome/brands/github
 
