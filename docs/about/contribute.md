@@ -146,7 +146,7 @@ To add a new page to the site’s navigation:
 ### Modify the Navigation Section
 
 - Find the `nav` section and add your page, e.g.:  
-  ```yaml
+  ```
   nav:
     - Home: index.md
     - New Page: new-feature.md  # Your new file
