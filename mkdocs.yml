@@ -54,13 +54,6 @@ markdown_extensions:
   - pymdownx.superfences
   - tables
 
-nav:
-  - Home: index.md 
-  - Getting started: start/
-  - Member Guide: member/
-  - Admin Gudie: admin/
-  - Developers Guide: dev/
-  - API: api/
 # Page tree
 # nav:
 #   - Home: 
