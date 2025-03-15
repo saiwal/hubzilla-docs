@@ -23,6 +23,8 @@ theme:
   features:
     - navigation.tabs
     - navigation.indexes
+  icon:
+    repo: fontawesome/brands/github
 
 repo_name: saiwal/hubzilla-docs
 repo_url: https://github.com/saiwal/hubzilla-docs
