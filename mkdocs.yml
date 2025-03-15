@@ -73,6 +73,9 @@ nav:
     - Widgets: admin/widgets.md
   - Developers Guide:
     - dev/index.md 
+    - Database:
+      - dev/database/index.md 
+      - abook: dev/database/abook.md 
     - Derived Theme: dev/derivedtheme.md 
     - Filesync and Clone : dev/filesync.md 
     - Plugins: dev/plugins.md 
