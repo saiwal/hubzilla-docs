@@ -144,7 +144,7 @@ nav:
     - Derived Theme: dev/theme/index.md 
     - Filesync and Clone : dev/filesync.md 
     - Plugins: dev/plugins/index.md 
-    - Widgets: dev/widgets/indedx.md
+    - Widgets: dev/widgets/index.md
     - Schema system: dev/schema.md 
     - Translating: dev/translations.md 
     - Zot: dev/zot.md 
