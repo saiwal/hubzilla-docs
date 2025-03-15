@@ -1,6 +1,6 @@
 # Contributing to This Documentation
 
-Welcome! We’re thrilled to have you contribute to the Hubzilla documentation. This guide explains how to submit changes to our documentation, hosted at `https://github.com/saiwal/hubzilla-docs`. Whether you’re fixing a typo, adding a section, or improving clarity, your input makes a difference. Here’s how to get started.
+Welcome! We’re thrilled to have you contribute to the Hubzilla documentation. This guide explains how to submit changes to our documentation, hosted at `https://github.com/saiwal/hubzilla-docs`. Built with MkDocs and the `mkdocs-material` theme, our docs are community-maintainable, and your input—whether fixing a typo, adding a section, or improving clarity—makes a difference. Here’s how to get started.
 
 ## How Versioning Works
 
@@ -10,7 +10,7 @@ Our documentation uses a versioning system where each version (e.g., `10.0.8`) h
 
 - A GitHub account (sign up at [github.com](https://github.com) if you don’t have one).
 - Basic knowledge of Markdown (our docs are written in this format—check out a [Markdown guide](https://www.markdownguide.org/) if you’re new to it).
-- Optional: Familiarity with Git and MkDocs (no worries if not—we’ll cover web-based editing too!).
+- Optional: Familiarity with Git, MkDocs, and `mkdocs-material` (no worries if not—we’ll cover web-based editing too!).
 
 ## Step-by-Step Guide
 
@@ -36,12 +36,12 @@ This is the simplest way to make changes without installing anything.
 #### Edit the File
 
 - Click the pencil icon (✏️) in the top-right corner of any `.md` file to edit.
-- Make your changes using Markdown (e.g., add text, headers with `#`, lists with `-`, or code blocks with ```).
+- Make your changes using Markdown (e.g., add text, headers with `#`, lists with `-`, or code blocks with ```). The `mkdocs-material` theme supports rich formatting—see its [reference](https://squidfunk.github.io/mkdocs-material/reference/) for options like admonitions or tables.
 - If creating a new file, name it descriptively (e.g., `new-feature.md`) and add your content.
 
 #### Preview Your Changes
 
-- Use the “Preview” tab above the editor to see how your Markdown will look.
+- Use the “Preview” tab above the editor to see how your Markdown will look (note: GitHub’s preview lacks `mkdocs-material` styling, so local testing is ideal for full accuracy).
 
 #### Submit Your Changes
 
@@ -61,7 +61,7 @@ This is the simplest way to make changes without installing anything.
 
 ### Option 2: Contribute Using Git Locally (For Advanced Users)
 
-If you prefer working locally and previewing the site, use this method.
+If you prefer working locally and previewing the site with `mkdocs-material`, use this method.
 
 #### Fork the Repository
 
@@ -71,53 +71,53 @@ If you prefer working locally and previewing the site, use this method.
 #### Clone Your Fork
 
 - Open a terminal and run:  
-  ```bash
+  ```
   git clone https://github.com/YOUR-USERNAME/hubzilla-docs.git
   ```
   Replace `YOUR-USERNAME` with your GitHub username.
 - Navigate into the folder:  
-  ```bash
+  ```
   cd hubzilla-docs
   ```
 
 #### Switch to the Version Branch
 
 - Check out the branch for the version you’re editing:  
-  ```bash
+  ```
   git checkout 10.0.8
   ```
   - If it doesn’t exist locally, fetch it:  
-    ```bash
+    ```
     git fetch origin
     git checkout 10.0.8
     ```
   - If the branch isn’t in the repo yet, create it:  
-    ```bash
+    ```
     git checkout -b 10.0.8
     ```
 
-#### Set Up MkDocs Locally
+#### Set Up MkDocs and MkDocs-Material Locally
 
 - Ensure Python is installed ([python.org](https://www.python.org/)).
-- Install MkDocs:  
-  ```bash
-  pip install mkdocs
+- Install MkDocs and `mkdocs-material`:  
   ```
-  If a theme like `mkdocs-material` is used, check `mkdocs.yml` and install it (e.g., `pip install mkdocs-material`).
+  pip install mkdocs mkdocs-material
+  ```
 
 #### Preview the Site
 
 - Run:  
-  ```bash
+  ```
   mkdocs serve
   ```
-- Visit `http://localhost:8000` to see the live site as you edit.
+- Visit `http://localhost:8000` to see the live site with `mkdocs-material` styling as you edit.
 
 #### Make Your Changes
 
 - Edit or create `.md` files in the `docs/` folder.
+- Use `mkdocs-material` features like admonitions (e.g., `!!! note`) or tabs—see the [docs](https://squidfunk.github.io/mkdocs-material/).
 - Stage and commit your changes:  
-  ```bash
+  ```
   git add .
   git commit -m "Updated 10.0.8 install instructions"
   ```
@@ -125,7 +125,7 @@ If you prefer working locally and previewing the site, use this method.
 #### Push to Your Fork
 
 - Push to the version branch in your fork:  
-  ```bash
+  ```
   git push origin 10.0.8
   ```
 
@@ -151,6 +151,7 @@ To add a new page to the site’s navigation:
     - Home: index.md
     - New Page: new-feature.md  # Your new file
   ```
+- The `mkdocs-material` theme will reflect this in the sidebar.
 
 ### Submit the Change
 
@@ -159,13 +160,13 @@ To add a new page to the site’s navigation:
 ## Tips for Success
 
 - **Target the Right Branch**: Always make changes in the version branch (e.g., `10.0.8`), not `main`.
+- **Leverage MkDocs-Material**: Explore its [features](https://squidfunk.github.io/mkdocs-material/) for rich formatting.
 - **Keep it Clear**: Write simply and concisely for all Hubzilla users.
-- **Test Locally**: Use `mkdocs serve` to preview your edits if possible.
+- **Test Locally**: Use `mkdocs serve` to preview with `mkdocs-material` styling.
 - **Ask for Help**: Stuck? Open an issue on the repo or contact the community (add contact info if applicable).
 
 ## After Submission
 
-Once your changes are merged into the version branch (e.g., `10.0.8`), a maintainer will handle merging them into `main` for publishing. Your contribution will then go live at [insert live site URL here, if available]. Thank you for improving Hubzilla’s documentation!
+Once your changes are merged into the version branch (e.g., `10.0.8`), a maintainer will handle merging them into `main` for publishing. Your contribution will then go live at [insert live site URL here, if available], styled beautifully with `mkdocs-material`. Thank you for improving Hubzilla’s documentation!
 
 ---
-
