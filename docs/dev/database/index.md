@@ -11,63 +11,63 @@ https://huburl/admin/dbsync/1999
 
 | Table                                                                 | Description                                                          |
 |----------------------------------------------------------------------|----------------------------------------------------------------------|
-| [abconfig](db_abconfig.md)                      | arbitrary storage for connections of local channels                  |
-| [abook](db_abook.md)                            | connections of local channels                                        |
-| [account](db_account.md)                        | service provider account                                             |
-| [addon](db_addon.md)                            | registered plugins                                                   |
-| [app](db_app.md)                                | personal app data                                                    |
-| [attach](db_attach.md)                          | file attachments                                                     |
-| [auth_codes](db_auth_codes.md)                  | OAuth usage                                                          |
-| [cache](db_cache.md)                            | OEmbed cache                                                         |
-| [cal](db_cal.md)                                | CalDAV containers for events                                         |
-| [channel](db_channel.md)                        | local channels                                                       |
-| [chat](db_chat.md)                              | chat room content                                                    |
-| [chatpresence](db_chatpresence.md)              | channel presence information for chat                                |
-| [chatroom](db_chatroom.md)                      | data for the actual chat room                                        |
-| [clients](db_clients.md)                        | OAuth usage                                                          |
-| [config](db_config.md)                          | main configuration storage                                           |
-| [conv](db_conv.md)                              | Diaspora private messages meta conversation structure                |
-| [event](db_event.md)                            | Events                                                               |
-| [pgrp_member](db_pgrp_member)                | privacy groups (collections.md), group info                             |
-| [pgrp](db_pgrp)                              | privacy groups (collections.md), member info                            |
-| [hook](db_hook.md)                              | plugin hook registry                                                 |
-| [hubloc](db_hubloc.md)                          | xchan location storage, ties a hub location to an xchan              |
-| [iconfig](db_iconfig.md)                        | extensible arbitrary storage for items                               |
-| [issue](db_issue.md)                            | future bug/issue database                                            |
-| [item](db_item.md)                              | all posts and webpages                                               |
-| [item_id](db_item_id.md)                        | (deprecated by iconfig) other identifiers on other services for posts|
-| [likes](db_likes.md)                            | likes of 'things'                                                    |
-| [mail](db_mail.md)                              | private messages                                                     |
-| [menu](db_menu.md)                              | webpage menu data                                                    |
-| [menu_item](db_menu_item.md)                    | entries for webpage menus                                            |
-| [notify](db_notify.md)                          | notifications                                                        |
-| [obj](db_obj.md)                                | object data for things (x has y)                                     |
-| [outq](db_outq.md)                              | output queue                                                         |
-| [pconfig](db_pconfig.md)                        | personal (per channel) configuration storage                         |
-| [photo](db_photo.md)                            | photo storage                                                        |
-| [poll](db_poll.md)                              | data for polls                                                       |
-| [poll_elm](db_poll_elm.md)                      | data for poll elements                                               |
-| [profdef](db_profdef.md)                        | custom profile field definitions                                     |
-| [profext](db_profext.md)                        | custom profile field data                                            |
-| [profile](db_profile.md)                        | channel profiles                                                     |
-| [profile_check](db_profile_check.md)            | DFRN remote auth use, may be obsolete                                |
-| [register](db_register.md)                      | registrations requiring admin approval                               |
-| [session](db_session.md)                        | web session storage                                                  |
-| [shares](db_shares.md)                          | shared item information                                              |
-| [sign](db_sign.md)                              | Diaspora signatures. To be phased out.                               |
-| [site](db_site.md)                              | site table to find directory peers                                   |
-| [source](db_source.md)                          | channel sources data                                                 |
-| [sys_perms](db_sys_perms.md)                    | extensible permissions for OAuth                                     |
-| [term](db_term.md)                              | item taxonomy (categories, tags, etc.) table                         |
-| [tokens](db_tokens.md)                          | OAuth usage                                                          |
-| [updates](db_updates.md)                        | directory sync updates                                               |
-| [verify](db_verify.md)                          | general purpose verification structure                               |
-| [vote](db_vote.md)                              | vote data for polls                                                  |
-| [xchan](db_xchan.md)                            | list of known channels in the universe                               |
-| [xchat](db_xchat.md)                            | bookmarked chat rooms                                                |
-| [xconfig](db_xconfig.md)                        | as pconfig but for channels with no local account                    |
-| [xign](db_xign.md)                              | channels ignored by friend suggestions                               |
-| [xlink](db_xlink.md)                            | "friends of friends" linkages derived from poco, also ratings storage|
-| [xperm](db_xperm.md)                            | OAuth/OpenID-Connect extensible permissions permissions storage      |
-| [xprof](db_xprof.md)                            | if this hub is a directory server, contains basic public profile info of everybody in the network |
-| [xtag](db_xtag.md)                              | if this hub is a directory server, contains tags or interests of everybody in the network        |
+| [abconfig](abconfig.md)                      | arbitrary storage for connections of local channels                  |
+| [abook](abook.md)                            | connections of local channels                                        |
+| [account](account.md)                        | service provider account                                             |
+| [addon](addon.md)                            | registered plugins                                                   |
+| [app](app.md)                                | personal app data                                                    |
+| [attach](attach.md)                          | file attachments                                                     |
+| [auth_codes](auth_codes.md)                  | OAuth usage                                                          |
+| [cache](cache.md)                            | OEmbed cache                                                         |
+| [cal](cal.md)                                | CalDAV containers for events                                         |
+| [channel](channel.md)                        | local channels                                                       |
+| [chat](chat.md)                              | chat room content                                                    |
+| [chatpresence](chatpresence.md)              | channel presence information for chat                                |
+| [chatroom](chatroom.md)                      | data for the actual chat room                                        |
+| [clients](clients.md)                        | OAuth usage                                                          |
+| [config](config.md)                          | main configuration storage                                           |
+| [conv](conv.md)                              | Diaspora private messages meta conversation structure                |
+| [event](event.md)                            | Events                                                               |
+| [pgrp_member](pgrp_member.md)                | privacy groups (collections.md), group info                             |
+| [pgrp](pgrp.md)                              | privacy groups (collections.md), member info                            |
+| [hook](hook.md)                              | plugin hook registry                                                 |
+| [hubloc](hubloc.md)                          | xchan location storage, ties a hub location to an xchan              |
+| [iconfig](iconfig.md)                        | extensible arbitrary storage for items                               |
+| [issue](issue.md)                            | future bug/issue database                                            |
+| [item](item.md)                              | all posts and webpages                                               |
+| [item_id](item_id.md)                        | (deprecated by iconfig) other identifiers on other services for posts|
+| [likes](likes.md)                            | likes of 'things'                                                    |
+| [mail](mail.md)                              | private messages                                                     |
+| [menu](menu.md)                              | webpage menu data                                                    |
+| [menu_item](menu_item.md)                    | entries for webpage menus                                            |
+| [notify](notify.md)                          | notifications                                                        |
+| [obj](obj.md)                                | object data for things (x has y)                                     |
+| [outq](outq.md)                              | output queue                                                         |
+| [pconfig](pconfig.md)                        | personal (per channel) configuration storage                         |
+| [photo](photo.md)                            | photo storage                                                        |
+| [poll](poll.md)                              | data for polls                                                       |
+| [poll_elm](poll_elm.md)                      | data for poll elements                                               |
+| [profdef](profdef.md)                        | custom profile field definitions                                     |
+| [profext](profext.md)                        | custom profile field data                                            |
+| [profile](profile.md)                        | channel profiles                                                     |
+| [profile_check](profile_check.md)            | DFRN remote auth use, may be obsolete                                |
+| [register](register.md)                      | registrations requiring admin approval                               |
+| [session](session.md)                        | web session storage                                                  |
+| [shares](shares.md)                          | shared item information                                              |
+| [sign](sign.md)                              | Diaspora signatures. To be phased out.                               |
+| [site](site.md)                              | site table to find directory peers                                   |
+| [source](source.md)                          | channel sources data                                                 |
+| [sys_perms](sys_perms.md)                    | extensible permissions for OAuth                                     |
+| [term](term.md)                              | item taxonomy (categories, tags, etc.) table                         |
+| [tokens](tokens.md)                          | OAuth usage                                                          |
+| [updates](updates.md)                        | directory sync updates                                               |
+| [verify](verify.md)                          | general purpose verification structure                               |
+| [vote](vote.md)                              | vote data for polls                                                  |
+| [xchan](xchan.md)                            | list of known channels in the universe                               |
+| [xchat](xchat.md)                            | bookmarked chat rooms                                                |
+| [xconfig](xconfig.md)                        | as pconfig but for channels with no local account                    |
+| [xign](xign.md)                              | channels ignored by friend suggestions                               |
+| [xlink](xlink.md)                            | "friends of friends" linkages derived from poco, also ratings storage|
+| [xperm](xperm.md)                            | OAuth/OpenID-Connect extensible permissions permissions storage      |
+| [xprof](xprof.md)                            | if this hub is a directory server, contains basic public profile info of everybody in the network |
+| [xtag](xtag.md)                              | if this hub is a directory server, contains tags or interests of everybody in the network        |

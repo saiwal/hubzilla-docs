@@ -1,4 +1,4 @@
-# Documentation
+# Class list
 
 ## Namespaces
 

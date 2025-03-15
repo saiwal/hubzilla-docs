@@ -1,0 +1,6 @@
+nav:
+  - Installation and Setup: install.md
+  - Hub Management: mgmt.md 
+  - Customization: customization.md 
+  - Monitoring and Maintainance: maintainance.md 
+  - Troubleshooting: troubleshooting.md

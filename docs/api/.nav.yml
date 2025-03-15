@@ -1,0 +1,8 @@
+nav:
+  - Introduction: intro.md
+  - Getting Started: start.md 
+  - Endpoints: endpoints.md 
+  - Request/Response Examples: request-response.md 
+  - Authentication: auth.md 
+  - Error Handling: error.md 
+  - Resources: resources.md 
