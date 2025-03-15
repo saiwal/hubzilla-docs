@@ -57,7 +57,12 @@ nav:
       - Privacy: about/gdpr.md
     - Release Notes: about/release.md 
     - Contributing: about/contribute.md
-  - Getting Started: start/index.md
+  - Getting Started: 
+    - start/index.md
+    - Preparation: start/prep.md
+    - Manual Installation: start/manual_install.md 
+    - Script install: start/script_install.md 
+    - Docker deployment: start/docker.md     
   - Member Guide: 
     - member/index.md 
     - Features: member/features.md
