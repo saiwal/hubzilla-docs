@@ -52,7 +52,7 @@ nav:
   - Home: 
     - index.md 
     - About Hubzilla Project: 
-      - About The Project: about/project/governance.md
+      - about/project/governance.md
       - Credits: about/project/credits.md
       - Privacy: about/gdpr.md
     - Release Notes: about/release.md 
