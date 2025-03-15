@@ -1,4 +1,4 @@
-### Accounts, Profiles and Channels
+# Accounts, Profiles and Channels
 
 Once you have registered an *account* at the grid you have also created a *profile* and a *channel*. 
 

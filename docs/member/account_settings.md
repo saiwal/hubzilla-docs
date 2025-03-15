@@ -1,4 +1,4 @@
-#### Account settings
+# Account settings
 
 You can use the account settings to change your account details.
 

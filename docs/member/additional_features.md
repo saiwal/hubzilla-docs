@@ -1,4 +1,4 @@
-#### Additional features (hidden settings)
+# Additional features (hidden settings)
 
 The ‘Additional Features’ settings are not accessible in their entirety either via the menu or via an icon. However, all the individual feature settings can also be accessed in the respective app via the cogwheel next to the main menu (avatar picture).
 These are settings for additional functions in all possible areas of Hubzilla. To access the settings, you have to append the URL of the hub `/settings/features` to the browser, e.g. `https://klacker.org/settings/features`.
