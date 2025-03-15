@@ -802,9 +802,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set-up-mkdocs-locally" class="md-nav__link">
+  <a href="#set-up-mkdocs-and-mkdocs-material-locally" class="md-nav__link">
     <span class="md-ellipsis">
-      Set Up MkDocs Locally
+      Set Up MkDocs and MkDocs-Material Locally
     </span>
   </a>
   
@@ -1615,9 +1615,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set-up-mkdocs-locally" class="md-nav__link">
+  <a href="#set-up-mkdocs-and-mkdocs-material-locally" class="md-nav__link">
     <span class="md-ellipsis">
-      Set Up MkDocs Locally
+      Set Up MkDocs and MkDocs-Material Locally
     </span>
   </a>
   
@@ -1749,14 +1749,14 @@
 
 
 <h1 id="contributing-to-this-documentation">Contributing to This Documentation</h1>
-<p>Welcome! We’re thrilled to have you contribute to the Hubzilla documentation. This guide explains how to submit changes to our documentation, hosted at <code>https://github.com/saiwal/hubzilla-docs</code>. Whether you’re fixing a typo, adding a section, or improving clarity, your input makes a difference. Here’s how to get started.</p>
+<p>Welcome! We’re thrilled to have you contribute to the Hubzilla documentation. This guide explains how to submit changes to our documentation, hosted at <code>https://github.com/saiwal/hubzilla-docs</code>. Built with MkDocs and the <code>mkdocs-material</code> theme, our docs are community-maintainable, and your input—whether fixing a typo, adding a section, or improving clarity—makes a difference. Here’s how to get started.</p>
 <h2 id="how-versioning-works">How Versioning Works</h2>
 <p>Our documentation uses a versioning system where each version (e.g., <code>10.0.8</code>) has its own branch in the repository. Changes should be made to the branch corresponding to the version you’re documenting (e.g., <code>10.0.8</code>). A maintainer will later merge these changes into the <code>main</code> branch for publishing. This keeps version-specific docs organized and up-to-date.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>A GitHub account (sign up at <a href="https://github.com">github.com</a> if you don’t have one).</li>
 <li>Basic knowledge of Markdown (our docs are written in this format—check out a <a href="https://www.markdownguide.org/">Markdown guide</a> if you’re new to it).</li>
-<li>Optional: Familiarity with Git and MkDocs (no worries if not—we’ll cover web-based editing too!).</li>
+<li>Optional: Familiarity with Git, MkDocs, and <code>mkdocs-material</code> (no worries if not—we’ll cover web-based editing too!).</li>
 </ul>
 <h2 id="step-by-step-guide">Step-by-Step Guide</h2>
 <h3 id="option-1-contribute-using-githubs-web-interface-no-software-required">Option 1: Contribute Using GitHub’s Web Interface (No Software Required)</h3>
@@ -1779,12 +1779,12 @@
 <h4 id="edit-the-file">Edit the File</h4>
 <ul>
 <li>Click the pencil icon (✏️) in the top-right corner of any <code>.md</code> file to edit.</li>
-<li>Make your changes using Markdown (e.g., add text, headers with <code>#</code>, lists with <code>-</code>, or code blocks with ```).</li>
+<li>Make your changes using Markdown (e.g., add text, headers with <code>#</code>, lists with <code>-</code>, or code blocks with <code>``). The</code>mkdocs-material` theme supports rich formatting—see its <a href="https://squidfunk.github.io/mkdocs-material/reference/">reference</a> for options like admonitions or tables.</li>
 <li>If creating a new file, name it descriptively (e.g., <code>new-feature.md</code>) and add your content.</li>
 </ul>
 <h4 id="preview-your-changes">Preview Your Changes</h4>
 <ul>
-<li>Use the “Preview” tab above the editor to see how your Markdown will look.</li>
+<li>Use the “Preview” tab above the editor to see how your Markdown will look (note: GitHub’s preview lacks <code>mkdocs-material</code> styling, so local testing is ideal for full accuracy).</li>
 </ul>
 <h4 id="submit-your-changes">Submit Your Changes</h4>
 <ul>
@@ -1803,7 +1803,7 @@
 <li>A maintainer will review your changes. Once approved, they’ll merge your contribution into the version branch and eventually into <code>main</code> for publishing.</li>
 </ul>
 <h3 id="option-2-contribute-using-git-locally-for-advanced-users">Option 2: Contribute Using Git Locally (For Advanced Users)</h3>
-<p>If you prefer working locally and previewing the site, use this method.</p>
+<p>If you prefer working locally and previewing the site with <code>mkdocs-material</code>, use this method.</p>
 <h4 id="fork-the-repository">Fork the Repository</h4>
 <ul>
 <li>Go to <code>https://github.com/saiwal/hubzilla-docs</code>.</li>
@@ -1812,54 +1812,45 @@
 <h4 id="clone-your-fork">Clone Your Fork</h4>
 <ul>
 <li>Open a terminal and run:<br />
-<code>bash
-  git clone https://github.com/YOUR-USERNAME/hubzilla-docs.git</code>
+<code>git clone https://github.com/YOUR-USERNAME/hubzilla-docs.git</code>
   Replace <code>YOUR-USERNAME</code> with your GitHub username.</li>
 <li>Navigate into the folder:<br />
-<code>bash
-  cd hubzilla-docs</code></li>
+<code>cd hubzilla-docs</code></li>
 </ul>
 <h4 id="switch-to-the-version-branch">Switch to the Version Branch</h4>
 <ul>
 <li>Check out the branch for the version you’re editing:<br />
-<code>bash
-  git checkout 10.0.8</code></li>
+<code>git checkout 10.0.8</code></li>
 <li>If it doesn’t exist locally, fetch it:<br />
-<code>bash
-    git fetch origin
+<code>git fetch origin
     git checkout 10.0.8</code></li>
 <li>If the branch isn’t in the repo yet, create it:<br />
-<code>bash
-    git checkout -b 10.0.8</code></li>
+<code>git checkout -b 10.0.8</code></li>
 </ul>
-<h4 id="set-up-mkdocs-locally">Set Up MkDocs Locally</h4>
+<h4 id="set-up-mkdocs-and-mkdocs-material-locally">Set Up MkDocs and MkDocs-Material Locally</h4>
 <ul>
 <li>Ensure Python is installed (<a href="https://www.python.org/">python.org</a>).</li>
-<li>Install MkDocs:<br />
-<code>bash
-  pip install mkdocs</code>
-  If a theme like <code>mkdocs-material</code> is used, check <code>mkdocs.yml</code> and install it (e.g., <code>pip install mkdocs-material</code>).</li>
+<li>Install MkDocs and <code>mkdocs-material</code>:<br />
+<code>pip install mkdocs mkdocs-material</code></li>
 </ul>
 <h4 id="preview-the-site">Preview the Site</h4>
 <ul>
 <li>Run:<br />
-<code>bash
-  mkdocs serve</code></li>
-<li>Visit <code>http://localhost:8000</code> to see the live site as you edit.</li>
+<code>mkdocs serve</code></li>
+<li>Visit <code>http://localhost:8000</code> to see the live site with <code>mkdocs-material</code> styling as you edit.</li>
 </ul>
 <h4 id="make-your-changes">Make Your Changes</h4>
 <ul>
 <li>Edit or create <code>.md</code> files in the <code>docs/</code> folder.</li>
+<li>Use <code>mkdocs-material</code> features like admonitions (e.g., <code>!!! note</code>) or tabs—see the <a href="https://squidfunk.github.io/mkdocs-material/">docs</a>.</li>
 <li>Stage and commit your changes:<br />
-<code>bash
-  git add .
+<code>git add .
   git commit -m "Updated 10.0.8 install instructions"</code></li>
 </ul>
 <h4 id="push-to-your-fork">Push to Your Fork</h4>
 <ul>
 <li>Push to the version branch in your fork:<br />
-<code>bash
-  git push origin 10.0.8</code></li>
+<code>git push origin 10.0.8</code></li>
 </ul>
 <h4 id="create-a-pull-request">Create a Pull Request</h4>
 <ul>
@@ -1883,6 +1874,7 @@
   ```</li>
 </ul>
 </li>
+<li>The <code>mkdocs-material</code> theme will reflect this in the sidebar.</li>
 </ul>
 <h3 id="submit-the-change">Submit the Change</h3>
 <ul>
@@ -1891,12 +1883,13 @@
 <h2 id="tips-for-success">Tips for Success</h2>
 <ul>
 <li><strong>Target the Right Branch</strong>: Always make changes in the version branch (e.g., <code>10.0.8</code>), not <code>main</code>.</li>
+<li><strong>Leverage MkDocs-Material</strong>: Explore its <a href="https://squidfunk.github.io/mkdocs-material/">features</a> for rich formatting.</li>
 <li><strong>Keep it Clear</strong>: Write simply and concisely for all Hubzilla users.</li>
-<li><strong>Test Locally</strong>: Use <code>mkdocs serve</code> to preview your edits if possible.</li>
+<li><strong>Test Locally</strong>: Use <code>mkdocs serve</code> to preview with <code>mkdocs-material</code> styling.</li>
 <li><strong>Ask for Help</strong>: Stuck? Open an issue on the repo or contact the community (add contact info if applicable).</li>
 </ul>
 <h2 id="after-submission">After Submission</h2>
-<p>Once your changes are merged into the version branch (e.g., <code>10.0.8</code>), a maintainer will handle merging them into <code>main</code> for publishing. Your contribution will then go live at [insert live site URL here, if available]. Thank you for improving Hubzilla’s documentation!</p>
+<p>Once your changes are merged into the version branch (e.g., <code>10.0.8</code>), a maintainer will handle merging them into <code>main</code> for publishing. Your contribution will then go live at [insert live site URL here, if available], styled beautifully with <code>mkdocs-material</code>. Thank you for improving Hubzilla’s documentation!</p>
 <hr />
 
 
