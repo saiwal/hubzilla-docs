@@ -69,7 +69,7 @@ nav:
     - Manual Installation: start/manual_install.md 
     - Script install: start/script_install.md 
     - Docker deployment: start/docker.md     
-  - Member Guide: member/
+  - Member Guide: '/member/'
   - Administrator Guide:
     - admin/index.md 
     - Directory: admin/primary_directory.md
