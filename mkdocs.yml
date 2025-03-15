@@ -64,7 +64,7 @@ nav:
       - Privacy: about/gdpr.md
       - Release Notes: about/release.md 
       - Contributing: about/contribute.md
-   - Getting Started: start/
+  - Getting Started: start/
 #     - start/index.md
 #     - Preparation: start/prep.md
 #     - Manual Installation: start/manual_install.md 
