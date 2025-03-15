@@ -39,10 +39,12 @@ extra:
 nav:
   - Home: 
     - index.md 
-    - About: 
+    - About Hubzilla Project: 
       - About The Project: about/project/governance.md
       - Credits: about/project/credits.md
       - Privacy: about/gdpr.md
+    - Release Notes: about/release.md 
+    - Contributing: about/contribute.md
   - Getting Started: start/index.md
   - Member Guide: 
     - member/index.md 
