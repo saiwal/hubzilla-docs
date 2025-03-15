@@ -1,5 +1,4 @@
-
-Privacy Notice May 2018
+# Privacy Notice 
 
 How your information will be used
 =================================
