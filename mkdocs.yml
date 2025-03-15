@@ -141,7 +141,7 @@ nav:
       - xperm: dev/database/db_xperm.md
       - xprof : dev/database/db_xprof.md
       - xtag: dev/database/db_xtag.md
-    - Derived Theme: dev/theme/index.md 
+    - Derived Theme: dev/themes/index.md 
     - Filesync and Clone : dev/filesync.md 
     - Plugins: dev/plugins/index.md 
     - Widgets: dev/widgets/index.md
