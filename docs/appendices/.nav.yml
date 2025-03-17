@@ -2,5 +2,6 @@ nav:
   - Glossary of Terms: glossary.md 
   - Changelog: changelog.md 
   - External Resources: resources.md
+  - Database Structure: database/
   - Class List: classlist.md 
   - Classes: classes/

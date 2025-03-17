@@ -3,5 +3,6 @@ mkdocs-material
 mkdocs-material-extensions
 mkdocs-minify-plugin
 mkdocs-redirects
+mkdocs-glightbox
 mike
 mkdocs-awesome-nav

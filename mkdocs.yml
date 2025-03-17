@@ -41,6 +41,7 @@ repo_url: https://github.com/saiwal/hubzilla-docs
 plugins:
   - search
   - awesome-nav
+  - glightbox
 
 extra:
   version:
