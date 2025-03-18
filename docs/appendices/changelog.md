@@ -1,4 +1,4 @@
-# Changelog
+# Changelog 
 
 *  Fix duplicating terms/iconfig in addToCollectionAndSync()
 * Refactor Daemon/Importdoc for better SQL performance when looking up outdated entries
