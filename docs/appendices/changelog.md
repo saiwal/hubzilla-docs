@@ -1,6 +1,5 @@
 # Release notes
 
-
 ## Release notes
 
 * Allow to send signed requests from the zot_probe tool
