@@ -1472,6 +1472,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1482,6 +1494,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bugfixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bugfixes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addons
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -65418,15 +65476,57 @@
 
 
 <h1 id="release-notes">Release notes</h1>
-<div class="language-text highlight"><pre><span></span><code>Fix duplicating terms/iconfig in addToCollectionAndSync()
-Refactor Daemon/Importdoc for better SQL performance when looking up outdated entries
-Tweak SQL in mod sse_bs for possible performance improvements
-Fix PHP warnings
-Do not run post_local hook on add activities in pubcrawl addon
-Do not run post_local hook on add activities in diaspora addon
-Remove old rawmsg/fields before storing new rawmsg in pubcrawl addon
-Fix retractions in diaspora addon
-</code></pre></div>
+<h2 id="release-notes_1">Release notes</h2>
+<ul>
+<li>Allow to send signed requests from the zot_probe tool</li>
+<li>Print an error message if OWA fails</li>
+<li>Remove possible leading @ before processing webfinger address</li>
+<li>Updated debian install script</li>
+<li>Calculate observer.baseurl from xchan_url instead of xchan_connurl</li>
+<li>Refactor unparse_url() to allow return of a custom field set only and add tests</li>
+<li>Slightly improve event object rendering</li>
+<li>Update smarty library to version 5 for PHP 8.4 compatibility</li>
+<li>Remove vendor/symfony from gitignore file</li>
+<li>Update composer libraries</li>
+<li>Add contextHistory field to activities and prefer it over context when consuming</li>
+<li>Implement highlight button in jot editor</li>
+<li>Add test results and PHPStan to gitignore</li>
+<li>Update spanish strings</li>
+<li>Remove EpubMeta library in favor of a custom solution</li>
+<li>Configue gd for jpeg support in CI</li>
+<li>Add error message on missing owa auth headers</li>
+<li>Add Zotlabs\Tests namespace to autloader in dev</li>
+<li>Add dba_pdo::update method</li>
+<li>Add dba_pdo::insert method</li>
+<li>Rewrite redbasic javascript to remove jquery dependency</li>
+<li>Add security policy SECURITY.md</li>
+</ul>
+<h2 id="bugfixes">Bugfixes</h2>
+<ul>
+<li>Fix notifications for likes on our comments</li>
+<li>Fix fullscreen view</li>
+<li>Fix boxy scheme text alignment for comments</li>
+<li>Fix poll date string to match with the autotime string</li>
+<li>Fix owner hash not set correctly when editing a post/comment</li>
+<li>Fix an issue where some participants could not post to forums</li>
+<li>Fix navbar selector conflict with possible additional navbars when using a cover photo</li>
+<li>Fix target and tgt_type not set for sourced rss items if we rewrite them to our own</li>
+<li>Fix auto save draft not set correctly</li>
+<li>Fix cover height calculation</li>
+</ul>
+<h2 id="addons">Addons</h2>
+<ul>
+<li>Diaspora: revisit import_diaspora_account()</li>
+<li>Pubcrawl: escape quotation marks in ActivityStreams link header</li>
+<li>Wiki: fixed wiki_page_list.tpl to use bootstrap class for layout</li>
+<li>BBmath: fix orientation for inline math</li>
+<li>BBmath: document imagemagick permissions</li>
+<li>Pubcrawl: ensure we select the correct hubloc hash when extending recipients list</li>
+<li>Msg_footer: do not add footer on edit, also dismiss anything but a create activity</li>
+<li>Pubcrawl: refactor activitypub addressing</li>
+<li>Wiki: added space to preview panel</li>
+<li>Startpage: update help text and some cleanup</li>
+</ul>
 
 
 
