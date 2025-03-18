@@ -99,4 +99,4 @@ public static unpack(mixed $data): mixed
 
 
 ***
-> Automatically generated on 2025-03-15
+> Automatically generated on 2025-03-18

@@ -1,0 +1,262 @@
+***
+
+# WildcardEmitterTrait
+
+Wildcard Emitter Trait.
+
+This trait provides the implementation for WildCardEmitter
+Refer to that class for the full documentation about this
+trait.
+
+Normally you can just instantiate that class, but if you want to add
+emitter functionality to existing classes, using the trait might be a
+better way to do this.
+
+* Full name: `\Sabre\Event\WildcardEmitterTrait`
+
+
+
+## Properties
+
+
+### listeners
+
+The list of listeners.
+
+```php
+protected $listeners
+```
+
+
+
+
+
+
+***
+
+### wildcardListeners
+
+The list of "wildcard listeners".
+
+```php
+protected $wildcardListeners
+```
+
+
+
+
+
+
+***
+
+### listenerIndex
+
+An index of listeners for a specific event name. This helps speeding
+up emitting events after all listeners have been set.
+
+```php
+protected $listenerIndex
+```
+
+If the list of listeners changes though, the index clears.
+
+
+
+
+***
+
+## Methods
+
+
+### on
+
+Subscribe to an event.
+
+```php
+public on(string $eventName, callable $callBack, int $priority = 100): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$eventName` | **string** |  |
+| `$callBack` | **callable** |  |
+| `$priority` | **int** |  |
+
+
+
+
+
+***
+
+### once
+
+Subscribe to an event exactly once.
+
+```php
+public once(string $eventName, callable $callBack, int $priority = 100): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$eventName` | **string** |  |
+| `$callBack` | **callable** |  |
+| `$priority` | **int** |  |
+
+
+
+
+
+***
+
+### emit
+
+Emits an event.
+
+```php
+public emit(string $eventName, array $arguments = [], callable $continueCallBack = null): bool
+```
+
+This method will return true if 0 or more listeners were successfully
+handled. false is returned if one of the events broke the event chain.
+
+If the continueCallBack is specified, this callback will be called every
+time before the next event handler is called.
+
+If the continueCallback returns false, event propagation stops. This
+allows you to use the eventEmitter as a means for listeners to implement
+functionality in your application, and break the event loop as soon as
+some condition is fulfilled.
+
+Note that returning false from an event subscriber breaks propagation
+and returns false, but if the continue-callback stops propagation, this
+is still considered a 'successful' operation and returns true.
+
+Lastly, if there are 5 event handlers for an event. The continueCallback
+will be called at most 4 times.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$eventName` | **string** |  |
+| `$arguments` | **array** |  |
+| `$continueCallBack` | **callable** |  |
+
+
+
+
+
+***
+
+### listeners
+
+Returns the list of listeners for an event.
+
+```php
+public listeners(string $eventName): callable[]
+```
+
+The list is returned as an array, and the list of events are sorted by
+their priority.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$eventName` | **string** |  |
+
+
+
+
+
+***
+
+### removeListener
+
+Removes a specific listener from an event.
+
+```php
+public removeListener(string $eventName, callable $listener): bool
+```
+
+If the listener could not be found, this method will return false. If it
+was removed it will return true.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$eventName` | **string** |  |
+| `$listener` | **callable** |  |
+
+
+
+
+
+***
+
+### removeAllListeners
+
+Removes all listeners.
+
+```php
+public removeAllListeners(string $eventName = null): mixed
+```
+
+If the eventName argument is specified, all listeners for that event are
+removed. If it is not specified, every listener for every event is
+removed.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$eventName` | **string** |  |
+
+
+
+
+
+***
+
+***
+> Automatically generated on 2025-03-18
+

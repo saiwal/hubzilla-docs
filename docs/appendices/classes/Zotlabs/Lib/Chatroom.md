@@ -220,4 +220,4 @@ public static message(int $uid, int $room_id, string $xchan, string $text): arra
 
 
 ***
-> Automatically generated on 2025-03-15
+> Automatically generated on 2025-03-18
