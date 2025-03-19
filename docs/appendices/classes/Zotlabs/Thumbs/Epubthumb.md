@@ -45,7 +45,7 @@ public Match(string $type): bool
 Create the thumbnail if the Epub has a cover.
 
 ```php
-public Thumb(array $attach, \Zotlabs\Thumbs\number $preview_style, \Zotlabs\Thumbs\number $height = 300, \Zotlabs\Thumbs\number $width = 300): mixed
+public Thumb(array $attach, int $preview_style, int $height = 300, int $width = 300): void
 ```
 
 
@@ -60,9 +60,9 @@ public Thumb(array $attach, \Zotlabs\Thumbs\number $preview_style, \Zotlabs\Thum
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$attach` | **array** |  |
-| `$preview_style` | **\Zotlabs\Thumbs\number** | unused |
-| `$height` | **\Zotlabs\Thumbs\number** | (optional) default 300 |
-| `$width` | **\Zotlabs\Thumbs\number** | (optional) default 300 |
+| `$preview_style` | **int** | unused |
+| `$height` | **int** | (optional) default 300 |
+| `$width` | **int** | (optional) default 300 |
 
 
 
@@ -70,12 +70,46 @@ public Thumb(array $attach, \Zotlabs\Thumbs\number $preview_style, \Zotlabs\Thum
 
 ***
 
-### getCover
+### getCoverFromEpub
 
-
+Fetch the cover from the epub archive, if it's present.
 
 ```php
-private getCover(string $filename): \GdImage|false
+private getCoverFromEpub(string $filename): \GdImage|false
+```
+
+There's a few limitations here: This will only work if the cover
+is a raster image of a supported format. SVG does not work, neither
+will other schemes sometimes used for cover/front page.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$filename` | **string** | The local filename of the epub archive. |
+
+
+**Return Value:**
+
+If a cover is found, it is returned as a
+GdImage object. Otherwise return false.
+
+
+
+
+***
+
+### parseEpub
+
+Parse the epub to find the path of the cover image.
+
+```php
+private parseEpub(\ZipArchive $epub): string|false
 ```
 
 
@@ -89,8 +123,45 @@ private getCover(string $filename): \GdImage|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$filename` | **string** |  |
+| `$epub` | **\ZipArchive** | An opened epub ZipArchive. |
 
+
+**Return Value:**
+
+The path to the cover image or false.
+
+
+
+
+***
+
+### getEpubPackagePath
+
+Locate the package file within the epub.
+
+```php
+private getEpubPackagePath(\ZipArchive $epub): string|false
+```
+
+The package file in an epub archive contains the manifest
+that again may contain a reference to the cover for the
+epub.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$epub` | **\ZipArchive** | An opened epub archive. |
+
+
+**Return Value:**
+
+The full pathname of the package file or false.
 
 
 
@@ -99,4 +170,4 @@ private getCover(string $filename): \GdImage|false
 
 
 ***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19

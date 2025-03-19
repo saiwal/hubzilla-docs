@@ -23,7 +23,7 @@ This token may be exchanged for an authenticated cookie.
 Initialize request processing.
 
 ```php
-public init(): mixed
+public init(): void
 ```
 
 This method is called before any other request processing, and
@@ -34,6 +34,54 @@ this method is invoked.
 
 
 
+
+
+
+
+
+***
+
+### validateAuthorizationHeader
+
+
+
+```php
+private validateAuthorizationHeader(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### error
+
+Terminates the request, and return a json error response.
+
+```php
+private error(string $msg): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$msg` | **string** | The error message for the response. |
 
 
 
@@ -123,4 +171,4 @@ HTML content for the module.
 
 
 ***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19

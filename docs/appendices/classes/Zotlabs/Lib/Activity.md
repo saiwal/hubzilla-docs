@@ -1624,4 +1624,4 @@ public static removeFromCollection(mixed $channel, mixed $object, mixed $target,
 
 
 ***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19

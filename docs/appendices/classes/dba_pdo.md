@@ -28,6 +28,21 @@ public $driver_dbtype
 
 ***
 
+### server_version
+
+
+
+```php
+private string $server_version
+```
+
+
+
+
+
+
+***
+
 ## Methods
 
 
@@ -103,6 +118,78 @@ public q(mixed $sql): bool|array|\PDOStatement
 **See Also:**
 
 * \dba_driver::q() - 
+
+***
+
+### insert
+
+Insert a row into a table.
+
+```php
+public insert(string $table, array $data, string $idcol): array|bool
+```
+
+The `$data` argument is an array of key/value pairs of the columns to
+insert, where the key is the column name. Values are automatically
+escaped if needed, and should be provided unescaped to this function.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$table` | **string** | The table to insert the row into. |
+| `$data` | **array** | The data to insert as an array of column name =&gt; value pairs. |
+| `$idcol` | **string** | The column name for the primary key of the table. We need to<br />specify this since we don&#039;t have a consistent naming of primary<br />id for tables. |
+
+
+**Return Value:**
+
+The complete record as read back from the database, or false if we
+could not fetch it.
+
+
+
+
+***
+
+### update
+
+Update an existing row in a table.
+
+```php
+public update(string $table, array $data, string $idcol, mixed $idval): bool
+```
+
+The `$data` argument is an array of key/value pairs of the columns to
+update, where the key is the column name. Values are automatically
+escaped if needed, and should be provided unescaped to this function.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$table` | **string** | The table to update. |
+| `$data` | **array** | The columns to update as key =&gt; value pairs. |
+| `$idcol` | **string** | The name of the id column to check $idval against. |
+| `$idval` | **mixed** | The id of the row to update. |
+
+
+**Return Value:**
+
+True if the update succeeded, false otherwise.
+
+
+
 
 ***
 
@@ -807,4 +894,4 @@ public unescapebin(mixed $str): mixed
 
 
 ***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19

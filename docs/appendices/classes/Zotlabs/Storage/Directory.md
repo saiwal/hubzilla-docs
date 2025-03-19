@@ -1,12 +1,12 @@
 
 # Directory
 
-Node class.
+
 
 
 
 * Full name: `\Zotlabs\Storage\Directory`
-* Parent class: [`\Sabre\DAV\Node`](../../Sabre/DAV/Node.md)
+* Parent class: [`Node`](../../Sabre/DAV/Node.md)
 * This class implements:
 [`\Sabre\DAV\ICollection`](../../Sabre/DAV/ICollection.md), [`\Sabre\DAV\IQuota`](../../Sabre/DAV/IQuota.md), [`\Sabre\DAV\IMoveTarget`](../../Sabre/DAV/IMoveTarget.md)
 
@@ -179,7 +179,7 @@ private log(): mixed
 
 ### getChildren
 
-Returns an array with all the child nodes.
+
 
 ```php
 public getChildren(): array
@@ -209,10 +209,10 @@ public getChildren(): array
 
 ### getChild
 
-Returns a specific child node, referenced by its name.
+
 
 ```php
-public getChild(string $name): \Sabre\DAV\INode
+public getChild(string $name): mixed
 ```
 
 
@@ -243,7 +243,7 @@ public getChild(string $name): \Sabre\DAV\INode
 
 ### getName
 
-Returns the name of the node.
+
 
 ```php
 public getName(): string
@@ -264,7 +264,7 @@ public getName(): string
 
 ### setName
 
-Renames the node.
+
 
 ```php
 public setName(string $name): void
@@ -296,7 +296,7 @@ public setName(string $name): void
 
 ### createFile
 
-Creates a new file in the directory.
+
 
 ```php
 public createFile(string $name, resource|string $data = null): null|string
@@ -333,7 +333,7 @@ ETag
 
 ### createDirectory
 
-Creates a new subdirectory.
+
 
 ```php
 public createDirectory(string $name): void
@@ -360,7 +360,7 @@ public createDirectory(string $name): void
 
 ### delete
 
-Deletes the current node.
+
 
 ```php
 public delete(): mixed
@@ -381,7 +381,7 @@ public delete(): mixed
 
 ### childExists
 
-Checks if a child-node with the specified name exists.
+
 
 ```php
 public childExists(string $name): bool
@@ -408,23 +408,13 @@ public childExists(string $name): bool
 
 ### moveInto
 
-Moves a node into this collection.
+
 
 ```php
-public moveInto(mixed $targetName, mixed $sourcePath, \Sabre\DAV\INode $sourceNode): bool
+public moveInto(mixed $targetName, mixed $sourcePath, \Sabre\DAV\INode $sourceNode): mixed
 ```
 
-It is up to the implementors to:
-  1. Create the new resource.
-  2. Remove the old resource.
-  3. Transfer any properties or other data.
 
-Generally you should make very sure that your collection can easily move
-the move.
-
-If you don't, just return false, which will trigger sabre/dav to handle
-the move itself. If you return true from this function, the assumption
-is that the move was successful.
 
 
 
@@ -435,9 +425,9 @@ is that the move was successful.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$targetName` | **mixed** | new local file/collection name |
-| `$sourcePath` | **mixed** | Full path to source node |
-| `$sourceNode` | **\Sabre\DAV\INode** | Source node itself |
+| `$targetName` | **mixed** |  |
+| `$sourcePath` | **mixed** |  |
+| `$sourceNode` | **\Sabre\DAV\INode** |  |
 
 
 
@@ -473,7 +463,7 @@ public getDir(): void
 
 ### getLastModified
 
-Returns the last modification time as a unix timestamp.
+
 
 ```php
 public getLastModified(): int
@@ -598,14 +588,13 @@ public FileData(string $file, \Zotlabs\Storage\BasicAuth& $auth, bool $test = fa
 
 ### getQuotaInfo
 
-Returns the quota information.
+
 
 ```php
 public getQuotaInfo(): mixed
 ```
 
-This method MUST return an array with 2 values, the first being the total used space,
-the second the available space (in bytes)
+
 
 
 
@@ -619,88 +608,5 @@ the second the available space (in bytes)
 ***
 
 
-## Inherited methods
-
-
-### getLastModified
-
-Returns the last modification time as a unix timestamp.
-
-```php
-public getLastModified(): int
-```
-
-If the information is not available, return null.
-
-
-
-
-
-
-
-
-
-
 ***
-
-### delete
-
-Deletes the current node.
-
-```php
-public delete(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-**Throws:**
-
-- [`Forbidden`](../../Sabre/DAV/Exception/Forbidden.md)
-
-
-
-***
-
-### setName
-
-Renames the node.
-
-```php
-public setName(string $name): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** | The new name |
-
-
-
-
-**Throws:**
-
-- [`Forbidden`](../../Sabre/DAV/Exception/Forbidden.md)
-
-
-
-***
-
-
-***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19

@@ -112,4 +112,4 @@ public static Set(mixed $key, mixed $value): mixed
 
 
 ***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19
