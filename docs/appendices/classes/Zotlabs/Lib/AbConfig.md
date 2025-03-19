@@ -136,4 +136,4 @@ public static Delete(mixed $chan, mixed $xhash, mixed $family, mixed $key): mixe
 
 
 ***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19

@@ -2565,4 +2565,4 @@ public setCollectionOf(mixed $collectionOf): \Zotlabs\ActivityStreams\Collection
 
 
 ***
-> Automatically generated on 2025-03-18
+> Automatically generated on 2025-03-19
