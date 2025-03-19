@@ -52491,6 +52491,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#validateauthorizationheader" class="md-nav__link">
+    <span class="md-ellipsis">
+      validateAuthorizationHeader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error" class="md-nav__link">
+    <span class="md-ellipsis">
+      error
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -65534,16 +65552,42 @@ If the signature verifies a token is returned.</p>
 <h2 id="methods">Methods</h2>
 <h3 id="init">init</h3>
 <p>Initialize request processing.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">public init(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">public init(): void</span>
 </span></code></pre></div>
 <p>This method is called before any other request processing, and
 regardless of the request method. The theme is not yet loaded when
 this method is invoked.</p>
 <hr />
+<h3 id="validateauthorizationheader">validateAuthorizationHeader</h3>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">private validateAuthorizationHeader(): bool</span>
+</span></code></pre></div>
+<hr />
+<h3 id="error">error</h3>
+<p>Terminates the request, and return a json error response.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">private error(string $msg): void</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$msg</code></td>
+<td><strong>string</strong></td>
+<td>The error message for the response.</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="inherited-methods">Inherited methods</h2>
 <h3 id="init_1">init</h3>
 <p>Initialize request processing.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public init(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">public init(): mixed</span>
 </span></code></pre></div>
 <p>This method is called before any other request processing, and
 regardless of the request method. The theme is not yet loaded when
@@ -65551,7 +65595,7 @@ this method is invoked.</p>
 <hr />
 <h3 id="post">post</h3>
 <p>Process POST requests.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">public post(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">public post(): mixed</span>
 </span></code></pre></div>
 <p>This method is called if the incoming request is a POST request. It is
 invoked after the theme has been loaded. This method should not normally
@@ -65561,7 +65605,7 @@ ways.</p>
 <hr />
 <h3 id="get">get</h3>
 <p>Process GET requests or the body part of POST requests.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">public get(): string</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="x">public get(): string</span>
 </span></code></pre></div>
 <p>This method is called directly for GET requests, and immediately after the
 <code>post()</code> method for POST requests.</p>
@@ -65571,7 +65615,7 @@ ways.</p>
 <hr />
 <hr />
 <blockquote>
-<p>Automatically generated on 2025-03-18</p>
+<p>Automatically generated on 2025-03-19</p>
 </blockquote>
 
 

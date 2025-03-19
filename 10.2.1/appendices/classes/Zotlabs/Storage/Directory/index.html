@@ -55623,48 +55623,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#inherited-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inherited methods
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Inherited methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getlastmodified_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      getLastModified
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      delete
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setname_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      setName
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -65743,10 +65701,9 @@
 
 
 <h1 id="directory">Directory</h1>
-<p>Node class.</p>
 <ul>
 <li>Full name: <code>\Zotlabs\Storage\Directory</code></li>
-<li>Parent class: <a href="../../../Sabre/DAV/Node/"><code>\Sabre\DAV\Node</code></a></li>
+<li>Parent class: <a href="../../../Sabre/DAV/Node/"><code>Node</code></a></li>
 <li>This class implements:
 <a href="../../../Sabre/DAV/ICollection/"><code>\Sabre\DAV\ICollection</code></a>, <a href="../../../Sabre/DAV/IQuota/"><code>\Sabre\DAV\IQuota</code></a>, <a href="../../../Sabre/DAV/IMoveTarget/"><code>\Sabre\DAV\IMoveTarget</code></a></li>
 </ul>
@@ -65820,7 +65777,6 @@
 </span></code></pre></div>
 <hr />
 <h3 id="getchildren">getChildren</h3>
-<p>Returns an array with all the child nodes.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">public getChildren(): array</span>
 </span></code></pre></div>
 <p><strong>Return Value:</strong></p>
@@ -65831,8 +65787,7 @@
 </ul>
 <hr />
 <h3 id="getchild">getChild</h3>
-<p>Returns a specific child node, referenced by its name.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="x">public getChild(string $name): \Sabre\DAV\INode</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="x">public getChild(string $name): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65862,12 +65817,10 @@
 </ul>
 <hr />
 <h3 id="getname">getName</h3>
-<p>Returns the name of the node.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="x">public getName(): string</span>
 </span></code></pre></div>
 <hr />
 <h3 id="setname">setName</h3>
-<p>Renames the node.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x">public setName(string $name): void</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
@@ -65893,7 +65846,6 @@
 </ul>
 <hr />
 <h3 id="createfile">createFile</h3>
-<p>Creates a new file in the directory.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="x">public createFile(string $name, resource|string $data = null): null|string</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
@@ -65926,7 +65878,6 @@
 </ul>
 <hr />
 <h3 id="createdirectory">createDirectory</h3>
-<p>Creates a new subdirectory.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="x">public createDirectory(string $name): void</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
@@ -65948,12 +65899,10 @@
 </table>
 <hr />
 <h3 id="delete">delete</h3>
-<p>Deletes the current node.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="x">public delete(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h3 id="childexists">childExists</h3>
-<p>Checks if a child-node with the specified name exists.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="x">public childExists(string $name): bool</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
@@ -65975,18 +65924,8 @@
 </table>
 <hr />
 <h3 id="moveinto">moveInto</h3>
-<p>Moves a node into this collection.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="x">public moveInto(mixed $targetName, mixed $sourcePath, \Sabre\DAV\INode $sourceNode): bool</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="x">public moveInto(mixed $targetName, mixed $sourcePath, \Sabre\DAV\INode $sourceNode): mixed</span>
 </span></code></pre></div>
-<p>It is up to the implementors to:
-  1. Create the new resource.
-  2. Remove the old resource.
-  3. Transfer any properties or other data.</p>
-<p>Generally you should make very sure that your collection can easily move
-the move.</p>
-<p>If you don't, just return false, which will trigger sabre/dav to handle
-the move itself. If you return true from this function, the assumption
-is that the move was successful.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -66000,17 +65939,17 @@ is that the move was successful.</p>
 <tr>
 <td><code>$targetName</code></td>
 <td><strong>mixed</strong></td>
-<td>new local file/collection name</td>
+<td></td>
 </tr>
 <tr>
 <td><code>$sourcePath</code></td>
 <td><strong>mixed</strong></td>
-<td>Full path to source node</td>
+<td></td>
 </tr>
 <tr>
 <td><code>$sourceNode</code></td>
 <td><strong>\Sabre\DAV\INode</strong></td>
-<td>Source node itself</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -66024,7 +65963,6 @@ is that the move was successful.</p>
 </ul>
 <hr />
 <h3 id="getlastmodified">getLastModified</h3>
-<p>Returns the last modification time as a unix timestamp.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="x">public getLastModified(): int</span>
 </span></code></pre></div>
 <p><strong>Return Value:</strong></p>
@@ -66124,57 +66062,12 @@ is that the move was successful.</p>
 </ul>
 <hr />
 <h3 id="getquotainfo">getQuotaInfo</h3>
-<p>Returns the quota information.</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="x">public getQuotaInfo(): mixed</span>
 </span></code></pre></div>
-<p>This method MUST return an array with 2 values, the first being the total used space,
-the second the available space (in bytes)</p>
-<hr />
-<h2 id="inherited-methods">Inherited methods</h2>
-<h3 id="getlastmodified_1">getLastModified</h3>
-<p>Returns the last modification time as a unix timestamp.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="x">public getLastModified(): int</span>
-</span></code></pre></div>
-<p>If the information is not available, return null.</p>
-<hr />
-<h3 id="delete_1">delete</h3>
-<p>Deletes the current node.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="x">public delete(): mixed</span>
-</span></code></pre></div>
-<p><strong>Throws:</strong></p>
-<ul>
-<li><a href="../../../Sabre/DAV/Exception/Forbidden/"><code>Forbidden</code></a></li>
-</ul>
-<hr />
-<h3 id="setname_1">setName</h3>
-<p>Renames the node.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="x">public setName(string $name): mixed</span>
-</span></code></pre></div>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>$name</code></td>
-<td><strong>string</strong></td>
-<td>The new name</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Throws:</strong></p>
-<ul>
-<li><a href="../../../Sabre/DAV/Exception/Forbidden/"><code>Forbidden</code></a></li>
-</ul>
 <hr />
 <hr />
 <blockquote>
-<p>Automatically generated on 2025-03-18</p>
+<p>Automatically generated on 2025-03-19</p>
 </blockquote>
 
 

@@ -57052,9 +57052,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getcover" class="md-nav__link">
+  <a href="#getcoverfromepub" class="md-nav__link">
     <span class="md-ellipsis">
-      getCover
+      getCoverFromEpub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parseepub" class="md-nav__link">
+    <span class="md-ellipsis">
+      parseEpub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getepubpackagepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      getEpubPackagePath
     </span>
   </a>
   
@@ -65526,7 +65544,7 @@
 <hr />
 <h3 id="thumb">Thumb</h3>
 <p>Create the thumbnail if the Epub has a cover.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public Thumb(array $attach, \Zotlabs\Thumbs\number $preview_style, \Zotlabs\Thumbs\number $height = 300, \Zotlabs\Thumbs\number $width = 300): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public Thumb(array $attach, int $preview_style, int $height = 300, int $width = 300): void</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65545,25 +65563,29 @@
 </tr>
 <tr>
 <td><code>$preview_style</code></td>
-<td><strong>\Zotlabs\Thumbs\number</strong></td>
+<td><strong>int</strong></td>
 <td>unused</td>
 </tr>
 <tr>
 <td><code>$height</code></td>
-<td><strong>\Zotlabs\Thumbs\number</strong></td>
+<td><strong>int</strong></td>
 <td>(optional) default 300</td>
 </tr>
 <tr>
 <td><code>$width</code></td>
-<td><strong>\Zotlabs\Thumbs\number</strong></td>
+<td><strong>int</strong></td>
 <td>(optional) default 300</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h3 id="getcover">getCover</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">private getCover(string $filename): \GdImage|false</span>
+<h3 id="getcoverfromepub">getCoverFromEpub</h3>
+<p>Fetch the cover from the epub archive, if it's present.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">private getCoverFromEpub(string $filename): \GdImage|false</span>
 </span></code></pre></div>
+<p>There's a few limitations here: This will only work if the cover
+is a raster image of a supported format. SVG does not work, neither
+will other schemes sometimes used for cover/front page.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -65577,14 +65599,68 @@
 <tr>
 <td><code>$filename</code></td>
 <td><strong>string</strong></td>
-<td></td>
+<td>The local filename of the epub archive.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Return Value:</strong></p>
+<p>If a cover is found, it is returned as a
+GdImage object. Otherwise return false.</p>
+<hr />
+<h3 id="parseepub">parseEpub</h3>
+<p>Parse the epub to find the path of the cover image.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">private parseEpub(\ZipArchive $epub): string|false</span>
+</span></code></pre></div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$epub</code></td>
+<td><strong>\ZipArchive</strong></td>
+<td>An opened epub ZipArchive.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>The path to the cover image or false.</p>
+<hr />
+<h3 id="getepubpackagepath">getEpubPackagePath</h3>
+<p>Locate the package file within the epub.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">private getEpubPackagePath(\ZipArchive $epub): string|false</span>
+</span></code></pre></div>
+<p>The package file in an epub archive contains the manifest
+that again may contain a reference to the cover for the
+epub.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$epub</code></td>
+<td><strong>\ZipArchive</strong></td>
+<td>An opened epub archive.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>The full pathname of the package file or false.</p>
 <hr />
 <hr />
 <blockquote>
-<p>Automatically generated on 2025-03-18</p>
+<p>Automatically generated on 2025-03-19</p>
 </blockquote>
 
 

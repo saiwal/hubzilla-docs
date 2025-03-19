@@ -4735,6 +4735,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#server_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      server_version
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4763,6 +4772,24 @@
   <a href="#q" class="md-nav__link">
     <span class="md-ellipsis">
       q
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      update
     </span>
   </a>
   
@@ -65775,9 +65802,13 @@
 <div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">public $driver_dbtype</span>
 </span></code></pre></div>
 <hr />
+<h3 id="server_version">server_version</h3>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">private string $server_version</span>
+</span></code></pre></div>
+<hr />
 <h2 id="methods">Methods</h2>
 <h3 id="connect">connect</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public connect(mixed $server, mixed $scheme, mixed $port, mixed $user, mixed $pass, mixed $db, mixed $db_charset): bool</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">public connect(mixed $server, mixed $scheme, mixed $port, mixed $user, mixed $pass, mixed $db, mixed $db_charset): bool</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65832,7 +65863,7 @@
 </ul>
 <hr />
 <h3 id="q">q</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">public q(mixed $sql): bool|array|\PDOStatement</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">public q(mixed $sql): bool|array|\PDOStatement</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65862,8 +65893,88 @@
 <li>\dba_driver::q() - </li>
 </ul>
 <hr />
+<h3 id="insert">insert</h3>
+<p>Insert a row into a table.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">public insert(string $table, array $data, string $idcol): array|bool</span>
+</span></code></pre></div>
+<p>The <code>$data</code> argument is an array of key/value pairs of the columns to
+insert, where the key is the column name. Values are automatically
+escaped if needed, and should be provided unescaped to this function.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table</code></td>
+<td><strong>string</strong></td>
+<td>The table to insert the row into.</td>
+</tr>
+<tr>
+<td><code>$data</code></td>
+<td><strong>array</strong></td>
+<td>The data to insert as an array of column name =&gt; value pairs.</td>
+</tr>
+<tr>
+<td><code>$idcol</code></td>
+<td><strong>string</strong></td>
+<td>The column name for the primary key of the table. We need to<br />specify this since we don&#039;t have a consistent naming of primary<br />id for tables.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>The complete record as read back from the database, or false if we
+could not fetch it.</p>
+<hr />
+<h3 id="update">update</h3>
+<p>Update an existing row in a table.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="x">public update(string $table, array $data, string $idcol, mixed $idval): bool</span>
+</span></code></pre></div>
+<p>The <code>$data</code> argument is an array of key/value pairs of the columns to
+update, where the key is the column name. Values are automatically
+escaped if needed, and should be provided unescaped to this function.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table</code></td>
+<td><strong>string</strong></td>
+<td>The table to update.</td>
+</tr>
+<tr>
+<td><code>$data</code></td>
+<td><strong>array</strong></td>
+<td>The columns to update as key =&gt; value pairs.</td>
+</tr>
+<tr>
+<td><code>$idcol</code></td>
+<td><strong>string</strong></td>
+<td>The name of the id column to check $idval against.</td>
+</tr>
+<tr>
+<td><code>$idval</code></td>
+<td><strong>mixed</strong></td>
+<td>The id of the row to update.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return Value:</strong></p>
+<p>True if the update succeeded, false otherwise.</p>
+<hr />
 <h3 id="escape">escape</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">public escape(mixed $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="x">public escape(mixed $str): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65884,11 +65995,11 @@
 </table>
 <hr />
 <h3 id="close">close</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">public close(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="x">public close(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h3 id="concat">concat</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="x">public concat(mixed $fld, mixed $sep): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="x">public concat(mixed $fld, mixed $sep): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65914,7 +66025,7 @@
 </table>
 <hr />
 <h3 id="use_index">use_index</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="x">public use_index(mixed $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">public use_index(mixed $str): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65935,7 +66046,7 @@
 </table>
 <hr />
 <h3 id="str_to_date">str_to_date</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="x">public str_to_date(mixed $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="x">public str_to_date(mixed $str): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65956,7 +66067,7 @@
 </table>
 <hr />
 <h3 id="quote_interval">quote_interval</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="x">public quote_interval(mixed $txt): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="x">public quote_interval(mixed $txt): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65977,7 +66088,7 @@
 </table>
 <hr />
 <h3 id="escapebin">escapebin</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">public escapebin(mixed $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x">public escapebin(mixed $str): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -65998,7 +66109,7 @@
 </table>
 <hr />
 <h3 id="unescapebin">unescapebin</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="x">public unescapebin(mixed $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="x">public unescapebin(mixed $str): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66019,12 +66130,12 @@
 </table>
 <hr />
 <h3 id="getdriver">getdriver</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="x">public getdriver(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="x">public getdriver(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h2 id="inherited-methods">Inherited methods</h2>
 <h3 id="connect_1">connect</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x">public connect(string $server, string $scheme, string $port, string $user, string $pass, string $db, mixed $db_charset): bool</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="x">public connect(string $server, string $scheme, string $port, string $user, string $pass, string $db, mixed $db_charset): bool</span>
 </span></code></pre></div>
 <ul>
 <li>This method is <strong>abstract</strong>.</li>
@@ -66078,7 +66189,7 @@
 </table>
 <hr />
 <h3 id="q_1">q</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="x">public q(string $sql): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="x">public q(string $sql): mixed</span>
 </span></code></pre></div>
 <ul>
 <li>This method is <strong>abstract</strong>.</li>
@@ -66102,7 +66213,7 @@
 </table>
 <hr />
 <h3 id="escape_1">escape</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="x">public escape(string $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="x">public escape(string $str): mixed</span>
 </span></code></pre></div>
 <ul>
 <li>This method is <strong>abstract</strong>.</li>
@@ -66126,21 +66237,21 @@
 </table>
 <hr />
 <h3 id="close_1">close</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="x">public close(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="x">public close(): mixed</span>
 </span></code></pre></div>
 <ul>
 <li>This method is <strong>abstract</strong>.</li>
 </ul>
 <hr />
 <h3 id="getdriver_1">getdriver</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="x">public getdriver(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="x">public getdriver(): mixed</span>
 </span></code></pre></div>
 <ul>
 <li>This method is <strong>abstract</strong>.</li>
 </ul>
 <hr />
 <h3 id="__construct">__construct</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="x">public __construct(mixed $server, mixed $scheme, mixed $port, mixed $user, mixed $pass, mixed $db, mixed $db_charset, mixed $install = false): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="x">public __construct(mixed $server, mixed $scheme, mixed $port, mixed $user, mixed $pass, mixed $db, mixed $db_charset, mixed $install = false): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66196,23 +66307,23 @@
 </table>
 <hr />
 <h3 id="get_null_date">get_null_date</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="x">public get_null_date(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="x">public get_null_date(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h3 id="get_install_script">get_install_script</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="x">public get_install_script(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="x">public get_install_script(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h3 id="get_table_quote">get_table_quote</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="x">public get_table_quote(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="x">public get_table_quote(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h3 id="utcnow">utcnow</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="x">public utcnow(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="x">public utcnow(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h3 id="install">install</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="x">public install(mixed $server, mixed $scheme, mixed $port, mixed $user, mixed $pass, mixed $db): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="x">public install(mixed $server, mixed $scheme, mixed $port, mixed $user, mixed $pass, mixed $db): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66258,7 +66369,7 @@
 </table>
 <hr />
 <h3 id="dbg">dbg</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="x">public dbg(int $dbg): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="x">public dbg(int $dbg): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66279,11 +66390,11 @@
 </table>
 <hr />
 <h3 id="__destruct">__destruct</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="x">public __destruct(): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="x">public __destruct(): mixed</span>
 </span></code></pre></div>
 <hr />
 <h3 id="quote_interval_1">quote_interval</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="x">public quote_interval(mixed $txt): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="x">public quote_interval(mixed $txt): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66304,7 +66415,7 @@
 </table>
 <hr />
 <h3 id="optimize_table">optimize_table</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="x">public optimize_table(mixed $table): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="x">public optimize_table(mixed $table): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66325,7 +66436,7 @@
 </table>
 <hr />
 <h3 id="concat_1">concat</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="x">public concat(mixed $fld, mixed $sep): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="x">public concat(mixed $fld, mixed $sep): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66351,7 +66462,7 @@
 </table>
 <hr />
 <h3 id="escapebin_1">escapebin</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="x">public escapebin(mixed $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="x">public escapebin(mixed $str): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66372,7 +66483,7 @@
 </table>
 <hr />
 <h3 id="unescapebin_1">unescapebin</h3>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="x">public unescapebin(mixed $str): mixed</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="x">public unescapebin(mixed $str): mixed</span>
 </span></code></pre></div>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -66394,7 +66505,7 @@
 <hr />
 <hr />
 <blockquote>
-<p>Automatically generated on 2025-03-18</p>
+<p>Automatically generated on 2025-03-19</p>
 </blockquote>
 
 
