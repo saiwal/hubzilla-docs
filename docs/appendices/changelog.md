@@ -7,5 +7,5 @@
 * Fix an obscure delivering issue which could produce duplicate posts
 * Lazy load profile photos for reactions to reduce server load
 * Pubcrawl: deal with Update(Tombstone)
-* Pubcrawl: fix mentions not mapped to "to" in public toplevel posts (regression)
+* Pubcrawl: fix mentions not mapped to "to" in public toplevel posts (regression).
 
