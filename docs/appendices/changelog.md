@@ -1,5 +1,4 @@
 # Changelog 
 
-* Fix OWA in cases where Signature is in the REDIRECT_REMOTE_USER field
-* Fix query in mod sse_bs
+* Fix bogus merge from 10.2.2 release which broke the notification widget 
 
