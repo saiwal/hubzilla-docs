@@ -37,6 +37,7 @@ theme:
 
 repo_name: saiwal/hubzilla-docs
 repo_url: https://github.com/saiwal/hubzilla-docs
+site_url: 'https://saiwal.github.io/hubzilla-docs'
 
 plugins:
   - search
